@@ -1,3 +1,4 @@
 # EQUIPO-2
-repositorio equipo 2 para el reto de DAM1
-pruebas de github
+Nombre del equipo - Tribu Nomada.
+Participantes del quipo - Rubén, Roberto, Pablo, Guillermo y Abraham.
+
