@@ -8,6 +8,7 @@
 [Plantilla guia de despliegue](https://github.com/rSainz21/DAM1_EQUIPO2_2425/blob/main/PLANTILLA%20GUIA%20DE%20DESPLIEGUE.docx)  
 [Diagrama de clases](https://github.com/rSainz21/DAM1_EQUIPO2_2425/blob/rama-diagrama-de-clases/Diagrama%20de%20clases%20(sin%20m%C3%A9todos).jpg)  
 [Infografia seguridad social](https://github.com/rSainz21/DAM1_EQUIPO2_2425/blob/rama-para-tarea-IPE/Infografia%20seguridad%20social.pdf)  
+[Plantilla xslt](https://github.com/rSainz21/DAM1_EQUIPO2_2425/blob/creacion-de-plantillas-xslt/plantilla_xslt_grupo2.xslt)
 
 /*/La documentación que se elabore del reto, de cara a la exposición y en el repositorio de
 github, es una memoria en la que se deberá hacer referencia al menos a:  
