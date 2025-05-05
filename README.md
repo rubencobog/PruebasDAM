@@ -1,7 +1,7 @@
-### EQUIPO-2  
-# Nombre del equipo - Tribu Nomada.  
-# Participantes del quipo - Rubén, Roberto, Pablo, Guillermo y Abraham.  
-# Roles - Ruben portavoz, Pablo desarrollador, Guille coordinador, Roberto secretario.  
+# EQUIPO-2  
+### Nombre del equipo - Tribu Nomada.  
+### Participantes del quipo - Rubén, Roberto, Pablo, Guillermo y Abraham.  
+### Roles - Ruben portavoz, Pablo desarrollador, Guille coordinador, Roberto secretario.  
 
 ## INDICE:  
 [ESQUEMA_ E/R] (https://github.com/rSainz21/DAM1_EQUIPO2_2425/blob/main/Bases%20de%20datos/diagrama_ER_FINAL.png)  
