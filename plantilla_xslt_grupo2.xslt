@@ -13,19 +13,10 @@
       <xsl:value-of select="author"/><xsl:text>;</xsl:text>
       <xsl:value-of select="link"/><xsl:text>;</xsl:text>
       <xsl:value-of select="time"/><xsl:text>&#10;</xsl:text>
-
-      <xsl:text>TipoRegistro,Latitud,Longitud,Elevacion,Timestamp&#10;</xsl:text>
-      <xsl:for-each select="gpx/wpt[type='interes']">
-        <xsl:text>Trackpoint;</xsl:text>
-        <xsl:value-of select="@lat"/><xsl:text>;</xsl:text>
-        <xsl:value-of select="@lon"/><xsl:text>;</xsl:text>
-        <xsl:value-of select="ele"/><xsl:text>;</xsl:text>
-        <xsl:value-of select="time"/><xsl:text>&#10;</xsl:text>
-        </xsl:for-each>
       
 
       <xsl:text>TipoRegistro,Latitud,Longitud,Elevacion,Timestamp,Nombre,Descripcion&#10;</xsl:text>
-      <xsl:for-each select="gpx/wpt[type='peligro']">
+      <xsl:for-each select="gpx/wpt">
         <xsl:text>Waypoint,</xsl:text>
         <xsl:value-of select="@lat"/><xsl:text>;</xsl:text>
         <xsl:value-of select="@lon"/><xsl:text>;</xsl:text>
