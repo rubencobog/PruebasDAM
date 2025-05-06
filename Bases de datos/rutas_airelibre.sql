@@ -276,7 +276,6 @@ CREATE TABLE IF NOT EXISTS `rutas_airelibre`.`valoraciones` (
   `dificultad` TINYINT NOT NULL,
   `belleza` TINYINT NOT NULL,
   `interes_cultu` TINYINT NOT NULL,
-  `texto_valo` TEXT NOT NULL,
   `fecha` DATE NOT NULL,
   `es_valo_tecnica` TINYINT NOT NULL,
   `texto_valo_tecnica` TEXT NULL,
