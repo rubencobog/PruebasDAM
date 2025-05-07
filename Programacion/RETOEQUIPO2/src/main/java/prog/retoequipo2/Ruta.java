@@ -8,38 +8,39 @@ import java.time.LocalDate;
 import java.util.LinkedList;
 
 public class Ruta {
-private int id_ruta;
-private String nombre;
-private LocalDate fecha;
-private double longitud_ini;
-private double latitud_ini;
-private double longitud_fin;
-private double latitud_fin;
-private int distancia_total;
-private int duracion;
-private double latitud_max;
-private double longitud_max;
-private CLASIFICACION clasificacion;
-private int nivel_riesgo;
-private int nivel_esfuerzo;
-private int desnivel_acumulado;
-private int tipo_terreno;
-private int indicaciones;
-private Actividad actividad;
-private Periodo periodo;
-private boolean accesible_inclusivo;
-private boolean familiar;
-private String url_gpx;
-private boolean validada;
-private String recomendaciones;
-private String zona_geografica;
-private double valoracion_media;
-private LinkedList <Punto_interes>puntos_interes;
-private LinkedList<Punto_peligro>puntos_peligro;
-private LinkedList<Resena>resenas;
-private LinkedList<Valoracion>valoraciones;
 
-    public Ruta(int id_ruta, String nombre, LocalDate fecha, double longitud_ini, double latitud_ini, double longitud_fin, double latitud_fin, int distancia_total, int duracion, double latitud_max, double longitud_max, CLASIFICACION clasificacion, int nivel_riesgo, int nivel_esfuerzo, int desnivel_acumulado, int tipo_terreno, int indicaciones, Actividad actividad, Periodo periodo, boolean accesible_inclusivo, boolean familiar, String url_gpx, boolean validada, String recomendaciones, String zona_geografica, double valoracion_media, LinkedList<Punto_interes> puntos_interes, LinkedList<Punto_peligro> puntos_peligro, LinkedList<Resena> resenas, LinkedList<Valoracion> valoraciones) {
+    private int id_ruta;
+    private String nombre;
+    private LocalDate fecha;
+    private double longitud_ini;
+    private double latitud_ini;
+    private double longitud_fin;
+    private double latitud_fin;
+    private int distancia_total;
+    private int duracion;
+    private double latitud_max;
+    private double longitud_max;
+    private CLASIFICACION clasificacion;
+    private int nivel_riesgo;
+    private int nivel_esfuerzo;
+    private int desnivel_acumulado;
+    private int tipo_terreno;
+    private int indicaciones;
+    private Actividad actividad;
+    private Periodo periodo;
+    private boolean accesible_inclusivo;
+    private boolean familiar;
+    private String url_gpx;
+    private boolean validada;
+    private String recomendaciones;
+    private String zona_geografica;
+    private double valoracion_media;
+    private LinkedList<Punto_interes> puntos_interes;
+    private LinkedList<Punto_peligro> puntos_peligro;
+    private LinkedList<Resena> resenas;
+    private LinkedList<Valoracion> valoraciones;
+
+    public Ruta(int id_ruta, String nombre, LocalDate fecha, double longitud_ini, double latitud_ini, double longitud_fin, double latitud_fin, int distancia_total, int duracion, double latitud_max, double longitud_max, CLASIFICACION clasificacion, int nivel_esfuerzo, int desnivel_acumulado, int tipo_terreno, int indicaciones, Actividad actividad, Periodo periodo, boolean accesible_inclusivo, boolean familiar, String url_gpx, boolean validada, String recomendaciones, String zona_geografica, double valoracion_media, LinkedList<Punto_interes> puntos_interes, LinkedList<Punto_peligro> puntos_peligro, LinkedList<Resena> resenas, LinkedList<Valoracion> valoraciones) {
         this.id_ruta = id_ruta;
         this.nombre = nombre;
         this.fecha = fecha;
@@ -52,7 +53,7 @@ private LinkedList<Valoracion>valoraciones;
         this.latitud_max = latitud_max;
         this.longitud_max = longitud_max;
         this.clasificacion = clasificacion;
-        this.nivel_riesgo = nivel_riesgo;
+        this.nivel_riesgo = calcularRiesgo();
         this.nivel_esfuerzo = nivel_esfuerzo;
         this.desnivel_acumulado = desnivel_acumulado;
         this.tipo_terreno = tipo_terreno;
@@ -72,7 +73,7 @@ private LinkedList<Valoracion>valoraciones;
         this.valoraciones = valoraciones;
     }
 
-    public Ruta(String nombre, LocalDate fecha, double longitud_ini, double latitud_ini, double longitud_fin, double latitud_fin, int distancia_total, int duracion, double latitud_max, double longitud_max, CLASIFICACION clasificacion, int nivel_riesgo, int nivel_esfuerzo, int desnivel_acumulado, int tipo_terreno, int indicaciones, Actividad actividad, Periodo periodo, boolean accesible_inclusivo, boolean familiar, String url_gpx, boolean validada, String recomendaciones, String zona_geografica, double valoracion_media, LinkedList<Punto_interes> puntos_interes, LinkedList<Punto_peligro> puntos_peligro, LinkedList<Resena> resenas, LinkedList<Valoracion> valoraciones) {
+    public Ruta(String nombre, LocalDate fecha, double longitud_ini, double latitud_ini, double longitud_fin, double latitud_fin, int distancia_total, int duracion, double latitud_max, double longitud_max, CLASIFICACION clasificacion, int nivel_esfuerzo, int desnivel_acumulado, int tipo_terreno, int indicaciones, Actividad actividad, Periodo periodo, boolean accesible_inclusivo, boolean familiar, String url_gpx, boolean validada, String recomendaciones, String zona_geografica, double valoracion_media, LinkedList<Punto_interes> puntos_interes, LinkedList<Punto_peligro> puntos_peligro, LinkedList<Resena> resenas, LinkedList<Valoracion> valoraciones) {
         this.nombre = nombre;
         this.fecha = fecha;
         this.longitud_ini = longitud_ini;
@@ -84,7 +85,7 @@ private LinkedList<Valoracion>valoraciones;
         this.latitud_max = latitud_max;
         this.longitud_max = longitud_max;
         this.clasificacion = clasificacion;
-        this.nivel_riesgo = nivel_riesgo;
+        this.nivel_riesgo = calcularRiesgo();
         this.nivel_esfuerzo = nivel_esfuerzo;
         this.desnivel_acumulado = desnivel_acumulado;
         this.tipo_terreno = tipo_terreno;
@@ -104,9 +105,65 @@ private LinkedList<Valoracion>valoraciones;
         this.valoraciones = valoraciones;
     }
 
-    
-    
+    private int calcularRiesgo() {
+        int riesgo = 0;
+        int riesgoAcumulado = 0;
+        if (!puntos_peligro.isEmpty()) {
+            for (Punto_peligro p : puntos_peligro) {
+                riesgoAcumulado += p.getNivel_gravedad();
+            }
+            riesgo = Math.round((float) riesgoAcumulado / puntos_peligro.size());
+        }
+        return riesgo;
+    }
 
+    private int calcularEsfuerzo(){
+    int esfDuracion=0;
+    if(this.duracion<31){
+        esfDuracion=2;
+    }else if(this.duracion>30){
+        esfDuracion=4;
+    }else if(this.duracion>60){
+        esfDuracion=6;
+    }else if(this.duracion>120){
+        esfDuracion=8;
+    }
+int esfDistancia=0;
+if(this.distancia_total<5){
+    esfDistancia=2;
+}else if(this.distancia_total>5){
+    esfDistancia=3;
+}else if(this.distancia_total>10){
+    esfDistancia=4;
+}else if(this.distancia_total>15){
+    esfDistancia=5;
+}else if(this.distancia_total>20){
+    esfDistancia=6;
+}else if(this.distancia_total>25){
+    esfDistancia=7;
+}else if(this.distancia_total>30){
+    esfDistancia=8;
+}
+
+int esfDesnivel=0;
+if(this.desnivel_acumulado<100){
+    esfDesnivel=2;
+}else if(this.desnivel_acumulado>100){
+    esfDesnivel=3;
+}else if(this.desnivel_acumulado>300){
+    esfDesnivel=4;
+}else if(this.desnivel_acumulado>500){
+    esfDesnivel=5;
+}else if(this.desnivel_acumulado>600){
+    esfDesnivel=6;
+}else if(this.desnivel_acumulado>800){
+    esfDesnivel=7;
+}else if(this.desnivel_acumulado>100){
+    esfDesnivel=8;
+}
+return Math.round((float)(esfDuracion+esfDistancia+esfDesnivel)/3);
+    }
+    
     public int getId_ruta() {
         return id_ruta;
     }
