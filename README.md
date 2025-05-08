@@ -32,15 +32,15 @@ Este proyecto consiste en la creación y despliegue de una aplicación sobre rut
 
 ## Diagrama de casos de uso:  
 
-![Diagrama casos de uso](Diagrama%20de%20casos.pdf)  
+![Diagrama casos de uso](Diagrama%20de%20casos.jpg)  
 
 
 ## Esquema E/R:  
 
-![Esquema E/R](diagrama_ER_FINAL.png)   
+![Esquema E/R](./Bases%20de%20datos/diagrama_ER_FINAL.png)   
 
 ## Esquema Relacional:  
-![Esquema Relacional](./Bases%20de%20datos/diagrama_ER_FINAL.png)  
+![Esquema Relacional](./Bases%20de%20datos/relacional.PNG)  
 
 
 ## Tecnologías Utilizadas  
