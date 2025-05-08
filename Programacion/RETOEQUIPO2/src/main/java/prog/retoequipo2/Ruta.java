@@ -35,12 +35,13 @@ public class Ruta {
     private String recomendaciones;
     private String zona_geografica;
     private double valoracion_media;
+    private Usuario creador;
     private LinkedList<Punto_interes> puntos_interes;
     private LinkedList<Punto_peligro> puntos_peligro;
     private LinkedList<Resena> resenas;
     private LinkedList<Valoracion> valoraciones;
 
-    public Ruta(int id_ruta, String nombre, LocalDate fecha, double longitud_ini, double latitud_ini, double longitud_fin, double latitud_fin, int distancia_total, int duracion, double latitud_max, double longitud_max, CLASIFICACION clasificacion, int nivel_esfuerzo, int desnivel_acumulado, int tipo_terreno, int indicaciones, Actividad actividad, Periodo periodo, boolean accesible_inclusivo, boolean familiar, String url_gpx, boolean validada, String recomendaciones, String zona_geografica, double valoracion_media, LinkedList<Punto_interes> puntos_interes, LinkedList<Punto_peligro> puntos_peligro, LinkedList<Resena> resenas, LinkedList<Valoracion> valoraciones) {
+    public Ruta(int id_ruta, String nombre, LocalDate fecha, double longitud_ini, double latitud_ini, double longitud_fin, double latitud_fin, int distancia_total, int duracion, double latitud_max, double longitud_max, CLASIFICACION clasificacion, int desnivel_acumulado, int tipo_terreno, int indicaciones, Actividad actividad, Periodo periodo, boolean accesible_inclusivo, boolean familiar, String url_gpx, boolean validada, String recomendaciones, String zona_geografica, Usuario creador, LinkedList<Punto_interes> puntos_interes, LinkedList<Punto_peligro> puntos_peligro, LinkedList<Resena> resenas, LinkedList<Valoracion> valoraciones) {
         this.id_ruta = id_ruta;
         this.nombre = nombre;
         this.fecha = fecha;
@@ -54,7 +55,7 @@ public class Ruta {
         this.longitud_max = longitud_max;
         this.clasificacion = clasificacion;
         this.nivel_riesgo = calcularRiesgo();
-        this.nivel_esfuerzo = nivel_esfuerzo;
+        this.nivel_esfuerzo = calcularEsfuerzo();
         this.desnivel_acumulado = desnivel_acumulado;
         this.tipo_terreno = tipo_terreno;
         this.indicaciones = indicaciones;
@@ -66,14 +67,15 @@ public class Ruta {
         this.validada = validada;
         this.recomendaciones = recomendaciones;
         this.zona_geografica = zona_geografica;
-        this.valoracion_media = valoracion_media;
+        this.valoracion_media = calcularValoMedia();
+        this.creador = creador;
         this.puntos_interes = puntos_interes;
         this.puntos_peligro = puntos_peligro;
         this.resenas = resenas;
         this.valoraciones = valoraciones;
     }
 
-    public Ruta(String nombre, LocalDate fecha, double longitud_ini, double latitud_ini, double longitud_fin, double latitud_fin, int distancia_total, int duracion, double latitud_max, double longitud_max, CLASIFICACION clasificacion, int nivel_esfuerzo, int desnivel_acumulado, int tipo_terreno, int indicaciones, Actividad actividad, Periodo periodo, boolean accesible_inclusivo, boolean familiar, String url_gpx, boolean validada, String recomendaciones, String zona_geografica, double valoracion_media, LinkedList<Punto_interes> puntos_interes, LinkedList<Punto_peligro> puntos_peligro, LinkedList<Resena> resenas, LinkedList<Valoracion> valoraciones) {
+    public Ruta(String nombre, LocalDate fecha, double longitud_ini, double latitud_ini, double longitud_fin, double latitud_fin, int distancia_total, int duracion, double latitud_max, double longitud_max, CLASIFICACION clasificacion, int nivel_esfuerzo, int desnivel_acumulado, int tipo_terreno, int indicaciones, Actividad actividad, Periodo periodo, boolean accesible_inclusivo, boolean familiar, String url_gpx, boolean validada, String recomendaciones, String zona_geografica, Usuario creador, LinkedList<Punto_interes> puntos_interes, LinkedList<Punto_peligro> puntos_peligro, LinkedList<Resena> resenas, LinkedList<Valoracion> valoraciones) {
         this.nombre = nombre;
         this.fecha = fecha;
         this.longitud_ini = longitud_ini;
@@ -86,7 +88,7 @@ public class Ruta {
         this.longitud_max = longitud_max;
         this.clasificacion = clasificacion;
         this.nivel_riesgo = calcularRiesgo();
-        this.nivel_esfuerzo = nivel_esfuerzo;
+        this.nivel_esfuerzo = calcularEsfuerzo();
         this.desnivel_acumulado = desnivel_acumulado;
         this.tipo_terreno = tipo_terreno;
         this.indicaciones = indicaciones;
@@ -98,7 +100,8 @@ public class Ruta {
         this.validada = validada;
         this.recomendaciones = recomendaciones;
         this.zona_geografica = zona_geografica;
-        this.valoracion_media = valoracion_media;
+        this.valoracion_media = calcularValoMedia();
+        this.creador = creador;
         this.puntos_interes = puntos_interes;
         this.puntos_peligro = puntos_peligro;
         this.resenas = resenas;
@@ -117,53 +120,65 @@ public class Ruta {
         return riesgo;
     }
 
-    private int calcularEsfuerzo(){
-    int esfDuracion=0;
-    if(this.duracion<31){
-        esfDuracion=2;
-    }else if(this.duracion>30){
-        esfDuracion=4;
-    }else if(this.duracion>60){
-        esfDuracion=6;
-    }else if(this.duracion>120){
-        esfDuracion=8;
+    private double calcularValoMedia() {
+        double valo_media=0;
+        double valo_acumulada=0;
+        if(!this.valoraciones.isEmpty()){
+            for(Valoracion valo:valoraciones){
+                valo_acumulada+=((valo.getBelleza()+valo.getDificultad()+valo.getInteres_cultural())/3.0);
+            }
+            valo_media=valo_acumulada/valoraciones.size();
+        }
+        return valo_media;
     }
-int esfDistancia=0;
-if(this.distancia_total<5){
-    esfDistancia=2;
-}else if(this.distancia_total>5){
-    esfDistancia=3;
-}else if(this.distancia_total>10){
-    esfDistancia=4;
-}else if(this.distancia_total>15){
-    esfDistancia=5;
-}else if(this.distancia_total>20){
-    esfDistancia=6;
-}else if(this.distancia_total>25){
-    esfDistancia=7;
-}else if(this.distancia_total>30){
-    esfDistancia=8;
-}
 
-int esfDesnivel=0;
-if(this.desnivel_acumulado<100){
-    esfDesnivel=2;
-}else if(this.desnivel_acumulado>100){
-    esfDesnivel=3;
-}else if(this.desnivel_acumulado>300){
-    esfDesnivel=4;
-}else if(this.desnivel_acumulado>500){
-    esfDesnivel=5;
-}else if(this.desnivel_acumulado>600){
-    esfDesnivel=6;
-}else if(this.desnivel_acumulado>800){
-    esfDesnivel=7;
-}else if(this.desnivel_acumulado>100){
-    esfDesnivel=8;
-}
-return Math.round((float)(esfDuracion+esfDistancia+esfDesnivel)/3);
+    private int calcularEsfuerzo() {
+        int esfDuracion = 0;
+        if (this.duracion < 31) {
+            esfDuracion = 2;
+        } else if (this.duracion > 30) {
+            esfDuracion = 4;
+        } else if (this.duracion > 60) {
+            esfDuracion = 6;
+        } else if (this.duracion > 120) {
+            esfDuracion = 8;
+        }
+        int esfDistancia = 0;
+        if (this.distancia_total < 5) {
+            esfDistancia = 2;
+        } else if (this.distancia_total > 5) {
+            esfDistancia = 3;
+        } else if (this.distancia_total > 10) {
+            esfDistancia = 4;
+        } else if (this.distancia_total > 15) {
+            esfDistancia = 5;
+        } else if (this.distancia_total > 20) {
+            esfDistancia = 6;
+        } else if (this.distancia_total > 25) {
+            esfDistancia = 7;
+        } else if (this.distancia_total > 30) {
+            esfDistancia = 8;
+        }
+
+        int esfDesnivel = 0;
+        if (this.desnivel_acumulado < 100) {
+            esfDesnivel = 2;
+        } else if (this.desnivel_acumulado > 100) {
+            esfDesnivel = 3;
+        } else if (this.desnivel_acumulado > 300) {
+            esfDesnivel = 4;
+        } else if (this.desnivel_acumulado > 500) {
+            esfDesnivel = 5;
+        } else if (this.desnivel_acumulado > 600) {
+            esfDesnivel = 6;
+        } else if (this.desnivel_acumulado > 800) {
+            esfDesnivel = 7;
+        } else if (this.desnivel_acumulado > 100) {
+            esfDesnivel = 8;
+        }
+        return Math.round((float) (esfDuracion + esfDistancia + esfDesnivel) / 3);
     }
-    
+
     public int getId_ruta() {
         return id_ruta;
     }
@@ -346,6 +361,14 @@ return Math.round((float)(esfDuracion+esfDistancia+esfDesnivel)/3);
 
     public void setZona_geografica(String zona_geografica) {
         this.zona_geografica = zona_geografica;
+    }
+
+    public Usuario getCreador() {
+        return creador;
+    }
+
+    public void setCreador(Usuario creador) {
+        this.creador = creador;
     }
 
     public LinkedList<Punto_interes> getPuntos_interes() {
