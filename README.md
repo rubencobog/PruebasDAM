@@ -34,6 +34,7 @@ Este proyecto consiste en la creación y despliegue de una aplicación sobre rut
 
 ![Diagrama casos de uso](https://github.com/rSainz21/DAM1_EQUIPO2_2425/blob/diagrama-de-casos/Diagrama%20de%20casos.pdf)  
 
+
 ## Esquema E/R:  
 
 ![Esquema E/R](https://github.com/rSainz21/DAM1_EQUIPO2_2425/blob/main/Bases%20de%20datos/diagrama_ER_FINAL.png)   
