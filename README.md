@@ -32,7 +32,8 @@ Este proyecto consiste en la creación y despliegue de una aplicación sobre rut
 
 ## Diagrama de casos de uso:  
 
-![Diagrama casos de uso](https://github.com/rSainz21/DAM1_EQUIPO2_2425/blob/diagrama-de-casos/Diagrama%20de%20casos.jpg)  
+![Diagrama casos de uso](https://github.com/rSainz21/DAM1_EQUIPO2_2425/blob/diagrama-de-casos/Diagrama%20de%20casos.pdf)  
+
 
 ## Esquema E/R:  
 
@@ -49,6 +50,3 @@ Este proyecto consiste en la creación y despliegue de una aplicación sobre rut
 - OpenSSH  
 
 ---  
-
-
-
