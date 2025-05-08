@@ -5,7 +5,7 @@
 
 ## INDICE:  
 1.[ESQUEMA_ E/R](https://github.com/rSainz21/DAM1_EQUIPO2_2425/blob/main/Bases%20de%20datos/diagrama_ER_FINAL.png)  
-2.[ESQUEMA RELACIONAL](https://github.com/rSainz21/DAM1_EQUIPO2_2425/blob/main/Bases%20de%20datos/relacional.PNG)
+2.[ESQUEMA RELACIONAL](https://github.com/rSainz21/DAM1_EQUIPO2_2425/blob/main/Bases%20de%20datos/relacional.PNG)  
 3.[Plantilla guia de despliegue](https://github.com/rSainz21/DAM1_EQUIPO2_2425/blob/main/PLANTILLA%20GUIA%20DE%20DESPLIEGUE.docx)  
 4.[Diagrama de clases](https://github.com/rSainz21/DAM1_EQUIPO2_2425/blob/rama-diagrama-de-clases/Diagrama%20de%20clases%20(sin%20m%C3%A9todos).jpg)  
 5.[Infografia seguridad social](https://github.com/rSainz21/DAM1_EQUIPO2_2425/blob/rama-para-tarea-IPE/Infografia%20seguridad%20social.pdf)  
