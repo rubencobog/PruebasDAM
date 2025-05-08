@@ -1,6 +1,6 @@
 # Reto Desarrollo de Aplicaciones DAM1  
 
-![Logo](https://via.placeholder.com/200x100.png?text=LOGO+DEL+PROYECTO)  
+![Logo](logo-tribu-nomada.png)
 
 ## INDICE:  
 1.[ESQUEMA_ E/R](https://github.com/rSainz21/DAM1_EQUIPO2_2425/blob/main/Bases%20de%20datos/diagrama_ER_FINAL.png)  
@@ -32,9 +32,15 @@ Este proyecto consiste en la creación y despliegue de una aplicación sobre rut
 
 ## Diagrama de casos de uso:  
 
-![Diagrama de Red](https://github.com/rSainz21/DAM1_EQUIPO2_2425/blob/diagrama-de-casos/Diagrama%20de%20casos.jpg))  
+![Diagrama casos de uso](https://github.com/rSainz21/DAM1_EQUIPO2_2425/blob/diagrama-de-casos/Diagrama%20de%20casos.jpg)  
 
----
+## Esquema E/R:  
+
+![Esquema E/R](https://github.com/rSainz21/DAM1_EQUIPO2_2425/blob/main/Bases%20de%20datos/diagrama_ER_FINAL.png)   
+
+## Esquema Relacional:  
+![Esquema Relacional](https://github.com/rSainz21/DAM1_EQUIPO2_2425/blob/main/Bases%20de%20datos/diagrama_ER_FINAL.png)  
+
 
 ## Tecnologías Utilizadas  
 - Ubuntu Server 22.04  
