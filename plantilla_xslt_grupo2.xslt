@@ -7,7 +7,13 @@
     <xsl:output method="text" encoding="UTF-8"/>
 
     <xsl:template match="/">
-        <xsl:text>Tipo,Nombre,Latitud,Longitud,Elevación,FechaHora,Comentario,Descripción&#10;</xsl:text>
+        <xsl:value-of select="gpx:gpx/gpx:metadata/gpx:name"/><xsl:text>,</xsl:text>    
+        <xsl:value-of select="gpx:gpx/gpx:metadata/gpx:author/gpx:name"/>
+        <xsl:text>,</xsl:text>  
+        <xsl:value-of select="gpx:gpx/gpx:metadata/gpx:link[1]/@href"/>
+        <xsl:text>,</xsl:text>
+        <xsl:value-of select="gpx:gpx/gpx:metadata/gpx:time"/>
+        <xsl:text>&#10;</xsl:text>
         <xsl:apply-templates select="//gpx:wpt"/>
         <xsl:apply-templates select="//gpx:trk"/>
     </xsl:template>
