@@ -1,32 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="1.0"
-    xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:stylesheet version="1.0" 
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:gpx="http://www.topografix.com/GPX/1/1"
+    exclude-result-prefixes="gpx">
 
-  <xsl:output method="text" encoding="UTF-8"/>
+    <xsl:output method="text" encoding="UTF-8"/>
 
-  <xsl:template match="/">
-    <xsl:text>TipoRegistro,NombreRuta,Autor,EnlaceWikiloc,FechaCreacionGPX&#10;</xsl:text>
-  
-    <xsl:for-each select="metadata">
-      <xsl:text>InfoGeneral,</xsl:text>
-      <xsl:value-of select="name"/><xsl:text>;</xsl:text>
-      <xsl:value-of select="author"/><xsl:text>;</xsl:text>
-      <xsl:value-of select="link"/><xsl:text>;</xsl:text>
-      <xsl:value-of select="time"/><xsl:text>&#10;</xsl:text>
-      
+    <xsl:template match="/">
+        <xsl:text>Tipo,Nombre,Latitud,Longitud,Elevación,FechaHora,Comentario,Descripción&#10;</xsl:text>
+        <xsl:apply-templates select="//gpx:wpt"/>
+        <xsl:apply-templates select="//gpx:trk"/>
+    </xsl:template>
 
-      <xsl:text>TipoRegistro,Latitud,Longitud,Elevacion,Timestamp,Nombre,Descripcion&#10;</xsl:text>
-      <xsl:for-each select="gpx/wpt">
-        <xsl:text>Waypoint,</xsl:text>
-        <xsl:value-of select="@lat"/><xsl:text>;</xsl:text>
-        <xsl:value-of select="@lon"/><xsl:text>;</xsl:text>
-        <xsl:value-of select="ele"/><xsl:text>;</xsl:text>
-        <xsl:value-of select="time"/><xsl:text>;</xsl:text>
-        <xsl:value-of select="name"/><xsl:text>;</xsl:text>
-        <xsl:value-of select="desc"/><xsl:text>&#10;</xsl:text>
-      </xsl:for-each>
-      
-    </xsl:for-each>
-  </xsl:template>
+    <xsl:template match="gpx:wpt">
+        <xsl:text>WPT,</xsl:text>
+        <xsl:value-of select="gpx:name"/><xsl:text>,</xsl:text>
+        <xsl:value-of select="@lat"/><xsl:text>,</xsl:text>
+        <xsl:value-of select="@lon"/><xsl:text>,</xsl:text>
+        <xsl:value-of select="gpx:ele"/><xsl:text>,</xsl:text>
+        <xsl:value-of select="gpx:time"/><xsl:text>,</xsl:text>
+        <xsl:value-of select="gpx:cmt"/><xsl:text>,</xsl:text>
+        <xsl:value-of select="gpx:desc"/><xsl:text>&#10;</xsl:text>
+    </xsl:template>
 
+    <xsl:template match="gpx:trk">
+        <xsl:for-each select="gpx:trkseg/gpx:trkpt">
+            <xsl:text>TRK,</xsl:text>
+            <xsl:value-of select="gpx:name"/><xsl:text>,</xsl:text>
+            <xsl:value-of select="@lat"/><xsl:text>,</xsl:text>
+            <xsl:value-of select="@lon"/><xsl:text>,</xsl:text>
+            <xsl:value-of select="gpx:ele"/><xsl:text>,</xsl:text>
+            <xsl:value-of select="gpx:time"/><xsl:text>,,,</xsl:text>
+            <xsl:text>&#10;</xsl:text>
+        </xsl:for-each>
+    </xsl:template>
 </xsl:stylesheet>
