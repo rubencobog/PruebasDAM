@@ -1,7 +1,7 @@
 
 delimiter //
 
-create trigger nivel_esfuerzo after insert on rutas for each row
+create trigger nivel_esfuerzo before insert on rutas for each row
 begin
 DECLARE puntos INT default 0; 
 
@@ -33,7 +33,7 @@ SET puntos = puntos + CASE
   END;
 
 set puntos=round(puntos/3);
-update rutas set nivel_esfuerzo=puntos where id=new.id;
+set NEW.nivel_esfuerzo=puntos;
 end//
 
 
