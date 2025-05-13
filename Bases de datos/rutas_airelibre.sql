@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `rutas_airelibre`.`usuarios` (
   PRIMARY KEY (`cod_usu`),
   UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 3
+AUTO_INCREMENT = 5
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `rutas_airelibre`.`rutas` (
   `duracion` INT NOT NULL,
   `clasificacion` ENUM('circular', 'lineal') CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_0900_ai_ci' NOT NULL,
   `tipo_terreno` TINYINT NOT NULL,
-  `nivel_riesgo` TINYINT NOT NULL,
+  `nivel_riesgo` TINYINT NOT NULL DEFAULT '0',
   `nivel_esfuerzo` TINYINT NOT NULL,
   `indicaciones` TINYINT NOT NULL,
   `accesib_inclusiv` TINYINT NOT NULL,
@@ -70,9 +70,11 @@ CREATE TABLE IF NOT EXISTS `rutas_airelibre`.`rutas` (
   INDEX `fk_rutas_usuarios1_idx` (`usuarios_cod_usu` ASC) VISIBLE,
   CONSTRAINT `fk_rutas_usuarios1`
     FOREIGN KEY (`usuarios_cod_usu`)
-    REFERENCES `rutas_airelibre`.`usuarios` (`cod_usu`))
+    REFERENCES `rutas_airelibre`.`usuarios` (`cod_usu`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 3
+AUTO_INCREMENT = 12
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_as_ci;
 
@@ -84,12 +86,14 @@ CREATE TABLE IF NOT EXISTS `rutas_airelibre`.`actividades` (
   `id_actividad` INT NOT NULL AUTO_INCREMENT,
   `nom_actividad` VARCHAR(25) NOT NULL,
   `descripcion` VARCHAR(125) NOT NULL,
-  `rutas_id_ruta` INT NOT NULL,
+  `rutas_id_ruta` INT NULL DEFAULT NULL,
   PRIMARY KEY (`id_actividad`),
   INDEX `fk_actividades_rutas1_idx` (`rutas_id_ruta` ASC) VISIBLE,
   CONSTRAINT `fk_actividades_rutas1`
     FOREIGN KEY (`rutas_id_ruta`)
-    REFERENCES `rutas_airelibre`.`rutas` (`id_ruta`))
+    REFERENCES `rutas_airelibre`.`rutas` (`id_ruta`)
+    ON DELETE SET NULL
+    ON UPDATE SET NULL)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
@@ -109,10 +113,14 @@ CREATE TABLE IF NOT EXISTS `rutas_airelibre`.`calendario` (
   INDEX `fk_calendario_rutas1_idx` (`rutas_id_ruta` ASC) VISIBLE,
   CONSTRAINT `fk_calendario_rutas1`
     FOREIGN KEY (`rutas_id_ruta`)
-    REFERENCES `rutas_airelibre`.`rutas` (`id_ruta`),
+    REFERENCES `rutas_airelibre`.`rutas` (`id_ruta`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_calendario_usuarios1`
     FOREIGN KEY (`usuarios_cod_usu`)
-    REFERENCES `rutas_airelibre`.`usuarios` (`cod_usu`))
+    REFERENCES `rutas_airelibre`.`usuarios` (`cod_usu`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
@@ -137,8 +145,11 @@ CREATE TABLE IF NOT EXISTS `rutas_airelibre`.`puntospeligro` (
   INDEX `fk_puntospeligro_rutas1_idx` (`rutas_id_ruta` ASC) VISIBLE,
   CONSTRAINT `fk_puntospeligro_rutas1`
     FOREIGN KEY (`rutas_id_ruta`)
-    REFERENCES `rutas_airelibre`.`rutas` (`id_ruta`))
+    REFERENCES `rutas_airelibre`.`rutas` (`id_ruta`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB
+AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -155,7 +166,9 @@ CREATE TABLE IF NOT EXISTS `rutas_airelibre`.`foto_pp` (
   INDEX `fk_foto_pp_puntospeligro1_idx` (`puntospeligro_id_trackpoint` ASC) VISIBLE,
   CONSTRAINT `fk_foto_pp_puntospeligro1`
     FOREIGN KEY (`puntospeligro_id_trackpoint`)
-    REFERENCES `rutas_airelibre`.`puntospeligro` (`id_trackpoint`))
+    REFERENCES `rutas_airelibre`.`puntospeligro` (`id_trackpoint`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
@@ -179,7 +192,9 @@ CREATE TABLE IF NOT EXISTS `rutas_airelibre`.`puntosinteres` (
   INDEX `fk_puntosinteres_rutas1_idx` (`rutas_id_ruta` ASC) VISIBLE,
   CONSTRAINT `fk_puntosinteres_rutas1`
     FOREIGN KEY (`rutas_id_ruta`)
-    REFERENCES `rutas_airelibre`.`rutas` (`id_ruta`))
+    REFERENCES `rutas_airelibre`.`rutas` (`id_ruta`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
@@ -197,7 +212,9 @@ CREATE TABLE IF NOT EXISTS `rutas_airelibre`.`fotos_pi` (
   INDEX `fk_fotos_pi_puntosinteres_idx` (`puntosinteres_id_trackpoint` ASC) VISIBLE,
   CONSTRAINT `fk_fotos_pi_puntosinteres`
     FOREIGN KEY (`puntosinteres_id_trackpoint`)
-    REFERENCES `rutas_airelibre`.`puntosinteres` (`id_trackpoint`))
+    REFERENCES `rutas_airelibre`.`puntosinteres` (`id_trackpoint`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
@@ -229,10 +246,14 @@ CREATE TABLE IF NOT EXISTS `rutas_airelibre`.`resenas` (
   INDEX `fk_reseñas_usuarios1_idx` (`usuarios_cod_usu` ASC) VISIBLE,
   CONSTRAINT `fk_reseñas_rutas1`
     FOREIGN KEY (`rutas_id_ruta`)
-    REFERENCES `rutas_airelibre`.`rutas` (`id_ruta`),
+    REFERENCES `rutas_airelibre`.`rutas` (`id_ruta`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_reseñas_usuarios1`
     FOREIGN KEY (`usuarios_cod_usu`)
-    REFERENCES `rutas_airelibre`.`usuarios` (`cod_usu`))
+    REFERENCES `rutas_airelibre`.`usuarios` (`cod_usu`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
@@ -277,10 +298,14 @@ CREATE TABLE IF NOT EXISTS `rutas_airelibre`.`valoraciones` (
   INDEX `fk_valoraciones_rutas1_idx` (`rutas_id_ruta` ASC) VISIBLE,
   CONSTRAINT `fk_valoraciones_rutas1`
     FOREIGN KEY (`rutas_id_ruta`)
-    REFERENCES `rutas_airelibre`.`rutas` (`id_ruta`),
+    REFERENCES `rutas_airelibre`.`rutas` (`id_ruta`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_valoraciones_usuarios1`
     FOREIGN KEY (`usuarios_cod_usu`)
-    REFERENCES `rutas_airelibre`.`usuarios` (`cod_usu`))
+    REFERENCES `rutas_airelibre`.`usuarios` (`cod_usu`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
