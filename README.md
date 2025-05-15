@@ -9,10 +9,10 @@
 4.[Diagrama de clases](https://github.com/rSainz21/DAM1_EQUIPO2_2425/blob/rama-diagrama-de-clases/Diagrama%20de%20clases%20(sin%20m%C3%A9todos).jpg)  
 5.[Infografia seguridad social](https://github.com/rSainz21/DAM1_EQUIPO2_2425/blob/main/Infograf%C3%ADa%20Seguridad%20Social.pdf)  
 6.[Plantilla xslt](https://github.com/rSainz21/DAM1_EQUIPO2_2425/blob/creacion-de-plantillas-xslt/plantilla_xslt_grupo2.xslt)  
-7.[Diagrama casos de uso](Diagrama%20de%20casos.jpg) 
-8.[Plantilla Manual de Usuario](https://github.com/rSainz21/DAM1_EQUIPO2_2425/blob/main/plantilla-manual-usuario.docx)
-9.[Documentacion de Despliegue de los servidores](https://github.com/rSainz21/DAM1_EQUIPO2_2425/blob/main/documentacion-guia-despliegue-servidores.docx)
-10.[Infografia Seguridad Social](https://github.com/rSainz21/DAM1_EQUIPO2_2425/blob/main/Infograf%C3%ADa%20Seguridad%20Social.pdf)
+7.[Diagrama casos de uso](Diagrama%20de%20casos.jpg)  
+8.[Plantilla Manual de Usuario](https://github.com/rSainz21/DAM1_EQUIPO2_2425/blob/main/plantilla-manual-usuario.docx)  
+9.[Documentacion de Despliegue de los servidores](https://github.com/rSainz21/DAM1_EQUIPO2_2425/blob/main/documentacion-guia-despliegue-servidores.docx)  
+10.[Infografia Seguridad Social](https://github.com/rSainz21/DAM1_EQUIPO2_2425/blob/main/Infograf%C3%ADa%20Seguridad%20Social.pdf)  
 
 
 ## Nombre del Equipo  
