@@ -1,0 +1,5 @@
+TipoRegistro,NombreRuta,Autor,EnlaceWikiloc,FechaCreacion
+InfoGeneral,a,Nombre de usuario: a Apellidos: a Email: a@a Fecha de nacimiento: 1000-01-01 ROL: ADMINISTRADOR
+,1,1000-01-01
+
+TipoRegistro,Latitud,Longitud,Timestamp
