@@ -5,6 +5,9 @@ package prog.retoequipo2;
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.LinkedList;
@@ -47,6 +50,13 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        DialogInsertarActividad = new javax.swing.JDialog();
+        jLabel47 = new javax.swing.JLabel();
+        jLabel48 = new javax.swing.JLabel();
+        txtNomActividad = new javax.swing.JTextField();
+        jScrollPane12 = new javax.swing.JScrollPane();
+        txtDescripcionActividad = new javax.swing.JTextArea();
+        btnSubmitActividad = new javax.swing.JButton();
         PantallaPrinci = new javax.swing.JPanel();
         btnIniciarSesion = new javax.swing.JButton();
         btnVerRutas = new javax.swing.JButton();
@@ -61,6 +71,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         FiltroOrdenaCombo = new javax.swing.JComboBox<>();
         btnPuntoPeligro = new javax.swing.JButton();
         btnPuntoInteres = new javax.swing.JButton();
+        btnInsertaActividad = new javax.swing.JButton();
+        btnPeriodo = new javax.swing.JButton();
         PantallaRegistro = new javax.swing.JPanel();
         textUsuario = new javax.swing.JTextField();
         btnEnviarInicioSesion = new javax.swing.JButton();
@@ -146,6 +158,106 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jScrollPane7 = new javax.swing.JScrollPane();
         txtResena = new javax.swing.JTextArea();
         btnSubmitResena = new javax.swing.JButton();
+        PantallaPuntoInteres = new javax.swing.JPanel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        txtDescripcionPuntoInteres = new javax.swing.JTextArea();
+        jLabel36 = new javax.swing.JLabel();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        txtCaracteristicasPuntoInteres = new javax.swing.JTextArea();
+        TipoPuntoInteresCombo = new javax.swing.JComboBox<>();
+        txtNomPuntoInteres = new javax.swing.JTextField();
+        txtFechaPuntoInteres = new javax.swing.JTextField();
+        txtNumPuntoInteres = new javax.swing.JTextField();
+        txtHoraPuntoInteres = new javax.swing.JTextField();
+        txtLatitudPuntoInteres = new javax.swing.JTextField();
+        txtLongitudPuntoInteres = new javax.swing.JTextField();
+        btnSubmitPuntoInteres = new javax.swing.JButton();
+        btnVolverPuntoInteres = new javax.swing.JButton();
+        PantallaPuntoPeligro = new javax.swing.JPanel();
+        jLabel37 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        jLabel39 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        jLabel41 = new javax.swing.JLabel();
+        jLabel42 = new javax.swing.JLabel();
+        jLabel43 = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        txtDescripcionPuntoPeligro = new javax.swing.JTextArea();
+        jLabel45 = new javax.swing.JLabel();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        txtDescripcionGravedadPuntoPeligro = new javax.swing.JTextArea();
+        txtNomPuntoPeligro = new javax.swing.JTextField();
+        txtFechaPuntoPeligro = new javax.swing.JTextField();
+        txtNumPuntoPeligro = new javax.swing.JTextField();
+        txtHoraPuntoPeligro = new javax.swing.JTextField();
+        txtLatitudPuntoPeligro = new javax.swing.JTextField();
+        txtLongitudPuntoPeligro = new javax.swing.JTextField();
+        btnSubmitPuntoPeligro = new javax.swing.JButton();
+        btnVolverPuntoPeligro = new javax.swing.JButton();
+        txtkmPuntoPeligro = new javax.swing.JTextField();
+        jLabel46 = new javax.swing.JLabel();
+        nivelGravedadCombo = new javax.swing.JComboBox<>();
+
+        DialogInsertarActividad.setTitle("Inserta Actividad");
+        DialogInsertarActividad.setSize(new java.awt.Dimension(800, 600));
+
+        jLabel47.setText("Nombre de la actividad:");
+
+        jLabel48.setText("Descripcion de la actividad:");
+
+        txtDescripcionActividad.setColumns(20);
+        txtDescripcionActividad.setRows(5);
+        jScrollPane12.setViewportView(txtDescripcionActividad);
+
+        btnSubmitActividad.setText("Enviar");
+        btnSubmitActividad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSubmitActividadActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout DialogInsertarActividadLayout = new javax.swing.GroupLayout(DialogInsertarActividad.getContentPane());
+        DialogInsertarActividad.getContentPane().setLayout(DialogInsertarActividadLayout);
+        DialogInsertarActividadLayout.setHorizontalGroup(
+            DialogInsertarActividadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DialogInsertarActividadLayout.createSequentialGroup()
+                .addGap(118, 118, 118)
+                .addGroup(DialogInsertarActividadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnSubmitActividad)
+                    .addGroup(DialogInsertarActividadLayout.createSequentialGroup()
+                        .addGroup(DialogInsertarActividadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel47)
+                            .addComponent(jLabel48))
+                        .addGap(89, 89, 89)
+                        .addGroup(DialogInsertarActividadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE)
+                            .addComponent(txtNomActividad))))
+                .addContainerGap(32, Short.MAX_VALUE))
+        );
+        DialogInsertarActividadLayout.setVerticalGroup(
+            DialogInsertarActividadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DialogInsertarActividadLayout.createSequentialGroup()
+                .addGap(81, 81, 81)
+                .addGroup(DialogInsertarActividadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel47)
+                    .addComponent(txtNomActividad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(105, 105, 105)
+                .addGroup(DialogInsertarActividadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel48)
+                    .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addComponent(btnSubmitActividad)
+                .addGap(32, 32, 32))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("VPrincipal");
@@ -179,14 +291,14 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             .addGroup(PantallaPrinciLayout.createSequentialGroup()
                 .addGap(220, 220, 220)
                 .addComponent(btnVerRutas, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(283, Short.MAX_VALUE))
+                .addContainerGap(184, Short.MAX_VALUE))
         );
         PantallaPrinciLayout.setVerticalGroup(
             PantallaPrinciLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PantallaPrinciLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(btnIniciarSesion)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 220, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 314, Short.MAX_VALUE)
                 .addComponent(btnVerRutas, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(187, 187, 187))
         );
@@ -256,6 +368,15 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        btnInsertaActividad.setText("Añadir Actividad de la ruta");
+        btnInsertaActividad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInsertaActividadActionPerformed(evt);
+            }
+        });
+
+        btnPeriodo.setText("Añadir Periodo recomendado");
+
         javax.swing.GroupLayout PantallaVerRutasLayout = new javax.swing.GroupLayout(PantallaVerRutas);
         PantallaVerRutas.setLayout(PantallaVerRutasLayout);
         PantallaVerRutasLayout.setHorizontalGroup(
@@ -267,12 +388,14 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                         .addGroup(PantallaVerRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(FiltroOrdenaCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnPuntoPeligro)
-                            .addComponent(btnPuntoInteres))
+                            .addComponent(btnPuntoInteres)
+                            .addComponent(btnInsertaActividad)
+                            .addComponent(btnPeriodo))
                         .addGap(34, 34, 34)
                         .addComponent(jScrollPane1))
                     .addGroup(PantallaVerRutasLayout.createSequentialGroup()
                         .addComponent(btnVolverVerRutas)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
                         .addComponent(btnModificaRuta)
                         .addGap(102, 102, 102)
                         .addComponent(btnBorrarRuta)
@@ -293,7 +416,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                         .addGap(42, 42, 42)
                         .addComponent(btnPuntoInteres)
                         .addGap(58, 58, 58)
-                        .addComponent(btnPuntoPeligro)))
+                        .addComponent(btnPuntoPeligro)
+                        .addGap(45, 45, 45)
+                        .addComponent(btnInsertaActividad)
+                        .addGap(55, 55, 55)
+                        .addComponent(btnPeriodo)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(PantallaVerRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnResena)
@@ -301,7 +428,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                     .addComponent(btnVolverVerRutas)
                     .addComponent(btnBorrarRuta)
                     .addComponent(btnModificaRuta))
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(135, Short.MAX_VALUE))
         );
 
         getContentPane().add(PantallaVerRutas, "card3");
@@ -339,7 +466,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                         .addGroup(PantallaRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(textUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)
                             .addComponent(textPassword))))
-                .addContainerGap(308, Short.MAX_VALUE))
+                .addContainerGap(349, Short.MAX_VALUE))
         );
         PantallaRegistroLayout.setVerticalGroup(
             PantallaRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -417,7 +544,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                     .addComponent(btnVerRuta2, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnDescargarFicha, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCrearRuta, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(394, Short.MAX_VALUE))
+                .addContainerGap(435, Short.MAX_VALUE))
         );
         PantallaMenuLayout.setVerticalGroup(
             PantallaMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -463,14 +590,14 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         PantallaValidarRutasLayout.setHorizontalGroup(
             PantallaValidarRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PantallaValidarRutasLayout.createSequentialGroup()
-                .addContainerGap(69, Short.MAX_VALUE)
+                .addContainerGap(90, Short.MAX_VALUE)
                 .addGroup(PantallaValidarRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane2)
                     .addGroup(PantallaValidarRutasLayout.createSequentialGroup()
                         .addComponent(btnVolverValidaRutas)
                         .addGap(604, 604, 604)
                         .addComponent(btnValidaRUTA)))
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
         PantallaValidarRutasLayout.setVerticalGroup(
             PantallaValidarRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -685,7 +812,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                                 .addGap(53, 53, 53)
                                 .addComponent(txtZonaGeo))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PantallaCrearRutaLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(PantallaCrearRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(PantallaCrearRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -846,7 +973,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                                     .addComponent(valoInteresCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(valoDificutadCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(valoBellezaCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 263, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 203, Short.MAX_VALUE)
                         .addGroup(PantallaValoracionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel24)
                             .addComponent(jLabel26))
@@ -887,7 +1014,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
                         .addGroup(PantallaValoracionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnSubmitValo)
                             .addComponent(btnVolverValoracion))
@@ -916,7 +1043,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         PantallaResenaLayout.setHorizontalGroup(
             PantallaResenaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PantallaResenaLayout.createSequentialGroup()
-                .addContainerGap(262, Short.MAX_VALUE)
+                .addContainerGap(163, Short.MAX_VALUE)
                 .addGroup(PantallaResenaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnSubmitResena)
                     .addGroup(PantallaResenaLayout.createSequentialGroup()
@@ -934,10 +1061,302 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                     .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
                 .addComponent(btnSubmitResena)
-                .addContainerGap(130, Short.MAX_VALUE))
+                .addContainerGap(220, Short.MAX_VALUE))
         );
 
         getContentPane().add(PantallaResena, "card10");
+
+        jLabel28.setText("Nombre del punto:");
+
+        jLabel29.setText("Número de punto en la ruta:");
+
+        jLabel30.setText("Tipo:");
+
+        jLabel31.setText("Fecha (Formato AAAA/mm/dd):");
+
+        jLabel32.setText("Hora:");
+
+        jLabel33.setText("Longitud:");
+
+        jLabel34.setText("Latitud:");
+
+        jLabel35.setText("Descripción:");
+
+        txtDescripcionPuntoInteres.setColumns(20);
+        txtDescripcionPuntoInteres.setRows(5);
+        jScrollPane8.setViewportView(txtDescripcionPuntoInteres);
+
+        jLabel36.setText("Características especiales:");
+
+        txtCaracteristicasPuntoInteres.setColumns(20);
+        txtCaracteristicasPuntoInteres.setRows(5);
+        jScrollPane9.setViewportView(txtCaracteristicasPuntoInteres);
+
+        TipoPuntoInteresCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Historico/Arqueologico", "Naturaleza", "Mirador", "Area de descanso", "Punto de agua", "Refugio/Alojamiento", "Cultural", "Geologico", "Fauna especifica", "Botanico" }));
+
+        txtNomPuntoInteres.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNomPuntoInteresActionPerformed(evt);
+            }
+        });
+
+        txtNumPuntoInteres.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNumPuntoInteresActionPerformed(evt);
+            }
+        });
+
+        btnSubmitPuntoInteres.setText("Enviar");
+        btnSubmitPuntoInteres.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSubmitPuntoInteresActionPerformed(evt);
+            }
+        });
+
+        btnVolverPuntoInteres.setText("Volver");
+
+        javax.swing.GroupLayout PantallaPuntoInteresLayout = new javax.swing.GroupLayout(PantallaPuntoInteres);
+        PantallaPuntoInteres.setLayout(PantallaPuntoInteresLayout);
+        PantallaPuntoInteresLayout.setHorizontalGroup(
+            PantallaPuntoInteresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PantallaPuntoInteresLayout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addGroup(PantallaPuntoInteresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel30)
+                    .addComponent(jLabel34)
+                    .addComponent(jLabel33)
+                    .addComponent(jLabel32)
+                    .addComponent(jLabel31)
+                    .addComponent(jLabel29)
+                    .addComponent(jLabel28))
+                .addGap(31, 31, 31)
+                .addGroup(PantallaPuntoInteresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PantallaPuntoInteresLayout.createSequentialGroup()
+                        .addComponent(txtNomPuntoInteres, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel35))
+                    .addGroup(PantallaPuntoInteresLayout.createSequentialGroup()
+                        .addGroup(PantallaPuntoInteresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PantallaPuntoInteresLayout.createSequentialGroup()
+                                .addGap(240, 240, 240)
+                                .addComponent(jLabel36))
+                            .addComponent(txtLatitudPuntoInteres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TipoPuntoInteresCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtLongitudPuntoInteres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(PantallaPuntoInteresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(txtHoraPuntoInteres, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                                .addComponent(txtFechaPuntoInteres, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtNumPuntoInteres, javax.swing.GroupLayout.Alignment.LEADING)))
+                        .addGap(0, 6, Short.MAX_VALUE)))
+                .addGap(49, 49, 49)
+                .addGroup(PantallaPuntoInteresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(PantallaPuntoInteresLayout.createSequentialGroup()
+                        .addComponent(btnVolverPuntoInteres)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnSubmitPuntoInteres))
+                    .addComponent(jScrollPane8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE)
+                    .addComponent(jScrollPane9, javax.swing.GroupLayout.Alignment.LEADING))
+                .addContainerGap(10, Short.MAX_VALUE))
+        );
+        PantallaPuntoInteresLayout.setVerticalGroup(
+            PantallaPuntoInteresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PantallaPuntoInteresLayout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addGroup(PantallaPuntoInteresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PantallaPuntoInteresLayout.createSequentialGroup()
+                        .addGroup(PantallaPuntoInteresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel28)
+                            .addComponent(jLabel35)
+                            .addComponent(txtNomPuntoInteres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(29, 29, 29)
+                        .addGroup(PantallaPuntoInteresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel29)
+                            .addComponent(txtNumPuntoInteres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(36, 36, 36)
+                        .addGroup(PantallaPuntoInteresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel31)
+                            .addComponent(txtFechaPuntoInteres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(27, 27, 27)
+                        .addGroup(PantallaPuntoInteresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel32)
+                            .addComponent(txtHoraPuntoInteres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34)
+                .addGroup(PantallaPuntoInteresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PantallaPuntoInteresLayout.createSequentialGroup()
+                        .addGroup(PantallaPuntoInteresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel33)
+                            .addComponent(jLabel36)
+                            .addComponent(txtLongitudPuntoInteres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(29, 29, 29)
+                        .addGroup(PantallaPuntoInteresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel34)
+                            .addComponent(txtLatitudPuntoInteres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(40, 40, 40)
+                        .addGroup(PantallaPuntoInteresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel30)
+                            .addComponent(TipoPuntoInteresCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(PantallaPuntoInteresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnSubmitPuntoInteres)
+                    .addComponent(btnVolverPuntoInteres))
+                .addContainerGap(67, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(PantallaPuntoInteres, "card12");
+
+        jLabel37.setText("Nombre del punto:");
+
+        jLabel38.setText("Número de punto en la ruta:");
+
+        jLabel39.setText("Km con respecto a la ruta:");
+
+        jLabel40.setText("Fecha (Formato AAAA-mm-dd):");
+
+        jLabel41.setText("Hora:");
+
+        jLabel42.setText("Longitud:");
+
+        jLabel43.setText("Latitud:");
+
+        jLabel44.setText("Descripción:");
+
+        txtDescripcionPuntoPeligro.setColumns(20);
+        txtDescripcionPuntoPeligro.setRows(5);
+        jScrollPane10.setViewportView(txtDescripcionPuntoPeligro);
+
+        jLabel45.setText("Descripcion de la gravedad:");
+
+        txtDescripcionGravedadPuntoPeligro.setColumns(20);
+        txtDescripcionGravedadPuntoPeligro.setRows(5);
+        jScrollPane11.setViewportView(txtDescripcionGravedadPuntoPeligro);
+
+        txtNomPuntoPeligro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNomPuntoPeligroActionPerformed(evt);
+            }
+        });
+
+        txtNumPuntoPeligro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNumPuntoPeligroActionPerformed(evt);
+            }
+        });
+
+        btnSubmitPuntoPeligro.setText("Enviar");
+        btnSubmitPuntoPeligro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSubmitPuntoPeligroActionPerformed(evt);
+            }
+        });
+
+        btnVolverPuntoPeligro.setText("Volver");
+
+        jLabel46.setText("Nivel de gravedad:");
+
+        nivelGravedadCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
+
+        javax.swing.GroupLayout PantallaPuntoPeligroLayout = new javax.swing.GroupLayout(PantallaPuntoPeligro);
+        PantallaPuntoPeligro.setLayout(PantallaPuntoPeligroLayout);
+        PantallaPuntoPeligroLayout.setHorizontalGroup(
+            PantallaPuntoPeligroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PantallaPuntoPeligroLayout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addGroup(PantallaPuntoPeligroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel39)
+                    .addComponent(jLabel43)
+                    .addComponent(jLabel42)
+                    .addComponent(jLabel41)
+                    .addComponent(jLabel40)
+                    .addComponent(jLabel38)
+                    .addComponent(jLabel37))
+                .addGap(31, 31, 31)
+                .addGroup(PantallaPuntoPeligroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PantallaPuntoPeligroLayout.createSequentialGroup()
+                        .addGroup(PantallaPuntoPeligroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PantallaPuntoPeligroLayout.createSequentialGroup()
+                                .addComponent(txtNomPuntoPeligro, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel44)
+                                .addGap(8, 8, 8))
+                            .addGroup(PantallaPuntoPeligroLayout.createSequentialGroup()
+                                .addComponent(txtLongitudPuntoPeligro)
+                                .addGap(183, 183, 183)
+                                .addComponent(jLabel45))
+                            .addGroup(PantallaPuntoPeligroLayout.createSequentialGroup()
+                                .addGroup(PantallaPuntoPeligroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(txtHoraPuntoPeligro, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                                    .addComponent(txtFechaPuntoPeligro, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtNumPuntoPeligro, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addGap(216, 216, 216)
+                                .addComponent(jLabel46)))
+                        .addGap(41, 41, 41))
+                    .addGroup(PantallaPuntoPeligroLayout.createSequentialGroup()
+                        .addGroup(PantallaPuntoPeligroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtkmPuntoPeligro)
+                            .addComponent(txtLatitudPuntoPeligro))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(PantallaPuntoPeligroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PantallaPuntoPeligroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(PantallaPuntoPeligroLayout.createSequentialGroup()
+                            .addComponent(btnVolverPuntoPeligro)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnSubmitPuntoPeligro))
+                        .addComponent(jScrollPane10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE)
+                        .addComponent(jScrollPane11, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addComponent(nivelGravedadCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10))
+        );
+        PantallaPuntoPeligroLayout.setVerticalGroup(
+            PantallaPuntoPeligroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PantallaPuntoPeligroLayout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addGroup(PantallaPuntoPeligroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PantallaPuntoPeligroLayout.createSequentialGroup()
+                        .addGroup(PantallaPuntoPeligroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel37)
+                            .addComponent(jLabel44)
+                            .addComponent(txtNomPuntoPeligro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(29, 29, 29)
+                        .addGroup(PantallaPuntoPeligroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel38)
+                            .addComponent(txtNumPuntoPeligro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(36, 36, 36)
+                        .addGroup(PantallaPuntoPeligroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel40)
+                            .addComponent(txtFechaPuntoPeligro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addGroup(PantallaPuntoPeligroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel41)
+                    .addComponent(txtHoraPuntoPeligro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel46)
+                    .addComponent(nivelGravedadCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34)
+                .addGroup(PantallaPuntoPeligroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PantallaPuntoPeligroLayout.createSequentialGroup()
+                        .addGroup(PantallaPuntoPeligroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel42)
+                            .addComponent(jLabel45)
+                            .addComponent(txtLongitudPuntoPeligro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(29, 29, 29)
+                        .addGroup(PantallaPuntoPeligroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel43)
+                            .addComponent(txtLatitudPuntoPeligro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(40, 40, 40)
+                        .addGroup(PantallaPuntoPeligroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel39)
+                            .addComponent(txtkmPuntoPeligro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(PantallaPuntoPeligroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnSubmitPuntoPeligro)
+                    .addComponent(btnVolverPuntoPeligro))
+                .addContainerGap(67, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(PantallaPuntoPeligro, "card12");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1560,12 +1979,183 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_FiltroOrdenaComboActionPerformed
 
     private void btnPuntoInteresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPuntoInteresActionPerformed
-        // TODO add your handling code here:
+        int seleccion = TablaRutas.getSelectedRow();
+        if (seleccion != -1) {
+            String id_string = (String) TablaRutas.getValueAt(seleccion, 0);
+            int id = Integer.parseInt(id_string);
+            ruta = rutas.obtenerRutaPorId(id);
+            PantallaCrearRuta.setVisible(false);
+            PantallaMenu.setVisible(false);
+            PantallaPrinci.setVisible(false);
+            PantallaRegistro.setVisible(false);
+            PantallaValidarRutas.setVisible(false);
+            PantallaValidarUsuarios.setVisible(false);
+            PantallaVerRutas.setVisible(false);
+            PantallaValoracion.setVisible(false);
+            PantallaResena.setVisible(false);
+            PantallaPuntoInteres.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "Debes seleccionar una ruta", "", JOptionPane.NO_OPTION);
+        }
     }//GEN-LAST:event_btnPuntoInteresActionPerformed
 
     private void btnPuntoPeligroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPuntoPeligroActionPerformed
-        // TODO add your handling code here:
+        int seleccion = TablaRutas.getSelectedRow();
+        if (seleccion != -1) {
+            String id_string = (String) TablaRutas.getValueAt(seleccion, 0);
+            int id = Integer.parseInt(id_string);
+            ruta = rutas.obtenerRutaPorId(id);
+            PantallaCrearRuta.setVisible(false);
+            PantallaMenu.setVisible(false);
+            PantallaPrinci.setVisible(false);
+            PantallaRegistro.setVisible(false);
+            PantallaValidarRutas.setVisible(false);
+            PantallaValidarUsuarios.setVisible(false);
+            PantallaVerRutas.setVisible(false);
+            PantallaValoracion.setVisible(false);
+            PantallaResena.setVisible(false);
+            PantallaPuntoInteres.setVisible(false);
+            PantallaPuntoPeligro.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "Debes seleccionar una ruta", "", JOptionPane.NO_OPTION);
+        }
     }//GEN-LAST:event_btnPuntoPeligroActionPerformed
+
+    private void txtNomPuntoInteresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomPuntoInteresActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNomPuntoInteresActionPerformed
+
+    private void txtNumPuntoInteresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumPuntoInteresActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNumPuntoInteresActionPerformed
+
+    private void btnSubmitPuntoInteresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitPuntoInteresActionPerformed
+        try {
+            String nomPunto = txtNomPuntoInteres.getText();
+            int ordenEnRuta = Integer.parseInt(txtNumPuntoInteres.getText());
+            String fechaHora = txtFechaPuntoInteres.getText();
+            fechaHora += " " + txtHoraPuntoInteres.getText();
+            LocalDateTime timestamp = null;
+            try {
+                DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+                timestamp = LocalDateTime.parse(fechaHora, formato);
+            } catch (DateTimeParseException e) {
+                JOptionPane.showMessageDialog(null, "Formato de fecha u hora incorrecto", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+            double longitud = Double.parseDouble(txtLongitudPuntoInteres.getText());
+            double latitud = Double.parseDouble(txtLatitudPuntoInteres.getText());
+            String tipoPunto = (String) TipoPuntoInteresCombo.getSelectedItem();
+            TIPO tipo = null;
+            switch (tipoPunto) {
+                case "Historico/Arqueologico" -> {
+                    tipo = TIPO.historico_arqueologico;
+                }
+                case "Naturaleza" -> {
+                    tipo = TIPO.naturaleza;
+                }
+                case "Mirador" -> {
+                    tipo = TIPO.mirador;
+                }
+                case "Area de descanso" -> {
+                    tipo = TIPO.area_de_descanso;
+                }
+                case "Punto de agua" -> {
+                    tipo = TIPO.punto_de_agua;
+                }
+                case "Refugio/Alojamiento" -> {
+                    tipo = TIPO.refugio_alojamiento;
+                }
+                case "Cultural" -> {
+                    tipo = TIPO.cultural;
+                }
+                case "Geologico" -> {
+                    tipo = TIPO.geologico;
+                }
+                case "Fauna especifica" -> {
+                    tipo = TIPO.fauna_especifica;
+                }
+                case "Botanico" -> {
+                    tipo = TIPO.botanico;
+                }
+            }
+            String descripcion = txtDescripcionPuntoInteres.getText();
+            String caracteristicas = txtCaracteristicasPuntoInteres.getText();
+            Punto_interes pi = new Punto_interes(ordenEnRuta, nomPunto, timestamp, longitud, latitud, tipo, descripcion, caracteristicas);
+            if (metodos.insertarPuntoInteres(pi, ruta)) {
+                JOptionPane.showMessageDialog(null, "Punto introducido", "", JOptionPane.PLAIN_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null, "Fallo al introducir Punto", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Valores introducidos incorrectos", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnSubmitPuntoInteresActionPerformed
+
+    private void txtNomPuntoPeligroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomPuntoPeligroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNomPuntoPeligroActionPerformed
+
+    private void txtNumPuntoPeligroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumPuntoPeligroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNumPuntoPeligroActionPerformed
+
+    private void btnSubmitPuntoPeligroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitPuntoPeligroActionPerformed
+        try {
+            String nomPunto = txtNomPuntoPeligro.getText();
+            int ordenEnRuta = Integer.parseInt(txtNumPuntoPeligro.getText());
+            String fechaHora = txtFechaPuntoPeligro.getText();
+            fechaHora += " " + txtHoraPuntoPeligro.getText();
+            LocalDateTime timestamp = null;
+            try {
+                DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+                timestamp = LocalDateTime.parse(fechaHora, formato);
+            } catch (DateTimeParseException e) {
+                JOptionPane.showMessageDialog(null, "Formato de fecha u hora incorrecto", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+            double longitud = Double.parseDouble(txtLongitudPuntoPeligro.getText());
+            double latitud = Double.parseDouble(txtLatitudPuntoPeligro.getText());
+            String descripcion = txtDescripcionPuntoPeligro.getText();
+            int nivelGravedad = Integer.parseInt((String) nivelGravedadCombo.getSelectedItem());
+            int km = Integer.parseInt(txtkmPuntoPeligro.getText());
+            String descripGravedad = txtDescripcionGravedadPuntoPeligro.getText();
+            Punto_peligro pp = new Punto_peligro(ordenEnRuta, nomPunto, timestamp, longitud, latitud, descripcion, km, nivelGravedad, descripGravedad);
+            if (metodos.insertarPuntoPeligro(pp, ruta)) {
+                JOptionPane.showMessageDialog(null, "Punto introducido", "", JOptionPane.PLAIN_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null, "Fallo al introducir Punto", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Valores introducidos incorrectos", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnSubmitPuntoPeligroActionPerformed
+
+    private void btnInsertaActividadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertaActividadActionPerformed
+        int seleccion = TablaRutas.getSelectedRow();
+        if (seleccion != -1) {
+            String idStr = (String) TablaRutas.getValueAt(seleccion, 0);
+            int id = Integer.parseInt(idStr);
+            ruta = rutas.obtenerRutaPorId(id);
+            PantallaCrearRuta.setVisible(false);
+            PantallaMenu.setVisible(false);
+            PantallaPrinci.setVisible(false);
+            PantallaPuntoInteres.setVisible(false);
+            PantallaPuntoPeligro.setVisible(false);
+            PantallaRegistro.setVisible(false);
+            PantallaResena.setVisible(false);
+            PantallaValidarRutas.setVisible(false);
+            PantallaValidarUsuarios.setVisible(false);
+            PantallaValoracion.setVisible(false);
+            PantallaVerRutas.setVisible(true);
+            DialogInsertarActividad.setVisible(true);
+            DialogInsertarActividad.setLocationRelativeTo(null);
+        } else {
+            JOptionPane.showMessageDialog(null, "Debes seleccionar una ruta", "ERROR", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_btnInsertaActividadActionPerformed
+
+    private void btnSubmitActividadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActividadActionPerformed
+    
+    }//GEN-LAST:event_btnSubmitActividadActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1820,12 +2410,15 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> AccesibleCombo;
     private javax.swing.JComboBox<String> ClasificacionCombo;
+    private javax.swing.JDialog DialogInsertarActividad;
     private javax.swing.JComboBox<String> FamiliarCombo;
     private javax.swing.JComboBox<String> FiltroOrdenaCombo;
     private javax.swing.JComboBox<String> IndicacionesCombo;
     private javax.swing.JPanel PantallaCrearRuta;
     private javax.swing.JPanel PantallaMenu;
     private javax.swing.JPanel PantallaPrinci;
+    private javax.swing.JPanel PantallaPuntoInteres;
+    private javax.swing.JPanel PantallaPuntoPeligro;
     private javax.swing.JPanel PantallaRegistro;
     private javax.swing.JPanel PantallaResena;
     private javax.swing.JPanel PantallaValidarRutas;
@@ -1836,17 +2429,23 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JTable TablaRutasNoValidadas;
     private javax.swing.JTable TablaUsuarios;
     private javax.swing.JComboBox<String> TerrenoCombo;
+    private javax.swing.JComboBox<String> TipoPuntoInteresCombo;
     private javax.swing.JButton btnBorrarRuta;
     private javax.swing.JButton btnCrearCalendar;
     private javax.swing.JButton btnCrearRuta;
     private javax.swing.JButton btnDescargarFicha;
     private javax.swing.JButton btnEnviarInicioSesion;
     private javax.swing.JButton btnIniciarSesion;
+    private javax.swing.JButton btnInsertaActividad;
     private javax.swing.JButton btnModificaRuta;
+    private javax.swing.JButton btnPeriodo;
     private javax.swing.JButton btnPuntoInteres;
     private javax.swing.JButton btnPuntoPeligro;
     private javax.swing.JButton btnResena;
+    private javax.swing.JButton btnSubmitActividad;
     private javax.swing.JButton btnSubmitModificacion;
+    private javax.swing.JButton btnSubmitPuntoInteres;
+    private javax.swing.JButton btnSubmitPuntoPeligro;
     private javax.swing.JButton btnSubmitResena;
     private javax.swing.JButton btnSubmitRuta;
     private javax.swing.JButton btnSubmitValo;
@@ -1858,6 +2457,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnVerRuta2;
     private javax.swing.JButton btnVerRutas;
     private javax.swing.JButton btnVolverCrearRuta;
+    private javax.swing.JButton btnVolverPuntoInteres;
+    private javax.swing.JButton btnVolverPuntoPeligro;
     private javax.swing.JButton btnVolverValidaRutas;
     private javax.swing.JButton btnVolverValidaUsuario;
     private javax.swing.JButton btnVolverValoracion;
@@ -1882,38 +2483,84 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane11;
+    private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
+    private javax.swing.JComboBox<String> nivelGravedadCombo;
     private javax.swing.JPasswordField textPassword;
     private javax.swing.JTextField textUsuario;
+    private javax.swing.JTextArea txtCaracteristicasPuntoInteres;
+    private javax.swing.JTextArea txtDescripcionActividad;
+    private javax.swing.JTextArea txtDescripcionGravedadPuntoPeligro;
+    private javax.swing.JTextArea txtDescripcionPuntoInteres;
+    private javax.swing.JTextArea txtDescripcionPuntoPeligro;
     private javax.swing.JTextField txtDesnivel;
     private javax.swing.JTextField txtDistancia;
     private javax.swing.JTextField txtDuracion;
+    private javax.swing.JTextField txtFechaPuntoInteres;
+    private javax.swing.JTextField txtFechaPuntoPeligro;
+    private javax.swing.JTextField txtHoraPuntoInteres;
+    private javax.swing.JTextField txtHoraPuntoPeligro;
     private javax.swing.JTextField txtLatFin;
     private javax.swing.JTextField txtLatIni;
     private javax.swing.JTextField txtLatMaxima;
+    private javax.swing.JTextField txtLatitudPuntoInteres;
+    private javax.swing.JTextField txtLatitudPuntoPeligro;
     private javax.swing.JTextField txtLongFinal;
     private javax.swing.JTextField txtLongIni;
     private javax.swing.JTextField txtLongMaxima;
+    private javax.swing.JTextField txtLongitudPuntoInteres;
+    private javax.swing.JTextField txtLongitudPuntoPeligro;
+    private javax.swing.JTextField txtNomActividad;
+    private javax.swing.JTextField txtNomPuntoInteres;
+    private javax.swing.JTextField txtNomPuntoPeligro;
     private javax.swing.JTextField txtNomRuta;
+    private javax.swing.JTextField txtNumPuntoInteres;
+    private javax.swing.JTextField txtNumPuntoPeligro;
     private javax.swing.JTextArea txtRecomendacion;
     private javax.swing.JTextArea txtResena;
     private javax.swing.JTextField txtURL;
     private javax.swing.JTextArea txtValoracion;
     private javax.swing.JTextArea txtValoracionTecnica;
     private javax.swing.JTextField txtZonaGeo;
+    private javax.swing.JTextField txtkmPuntoPeligro;
     private javax.swing.JComboBox<String> valoBellezaCombo;
     private javax.swing.JComboBox<String> valoDificutadCombo;
     private javax.swing.JComboBox<String> valoInteresCombo;
