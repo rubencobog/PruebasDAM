@@ -540,7 +540,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -556,9 +556,10 @@
                       <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="botonImportar" max="32767" attributes="0"/>
                       <Component id="txtLongIni" min="-2" pref="85" max="-2" attributes="0"/>
-                      <Component id="txtNomRuta" min="-2" pref="147" max="-2" attributes="0"/>
+                      <Component id="txtNomRuta" pref="147" max="32767" attributes="0"/>
                       <Component id="txtLatIni" min="-2" pref="85" max="-2" attributes="0"/>
                       <Component id="txtLongFinal" min="-2" pref="85" max="-2" attributes="0"/>
                       <Component id="txtLatFin" min="-2" pref="85" max="-2" attributes="0"/>
@@ -707,12 +708,21 @@
                       <Component id="txtDesnivel" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnSubmitModificacion" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btnSubmitRuta" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnVolverCrearRuta" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="btnSubmitRuta" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnVolverCrearRuta" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace pref="25" max="32767" attributes="0"/>
+                          <Component id="botonImportar" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -960,6 +970,14 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSubmitModificacionActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="botonImportar">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Importar GPX"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonImportarActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
