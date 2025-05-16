@@ -1479,8 +1479,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         int result = elegirArchivo.showOpenDialog(this);
         
         if (result == JFileChooser.APPROVE_OPTION){
-            File gpxFile = elegirArchivo.getSelectedFile();
-            //llamar método importar gpx
+            File csvFile = elegirArchivo.getSelectedFile();
+            ImportCSV.importar(csvFile, txtNomRuta, txtLatIni, txtLongIni, txtLatFin, txtLongFinal, 
+                    txtDistancia, txtDuracion, txtDesnivel, txtLatMaxima, txtLongMaxima, ClasificacionCombo);
+        
+            
         }
     }//GEN-LAST:event_botonImportarActionPerformed
 

@@ -35,13 +35,13 @@ prog\retoequipo2\PantallaPrincipal$19.class
 prog\retoequipo2\CLASIFICACION.class
 prog\retoequipo2\PantallaPrincipal$2.class
 prog\retoequipo2\PantallaPrincipal$5.class
-prog\retoequipo2\ImportGPX.class
 prog\retoequipo2\Resena.class
 prog\retoequipo2\Actividad.class
 prog\retoequipo2\PantallaPrincipal$12.class
 prog\retoequipo2\PantallaPrincipal$22.class
 prog\retoequipo2\Puntos_ruta.class
 prog\retoequipo2\MetodosDAO.class
+prog\retoequipo2\ImportCSV.class
 prog\retoequipo2\RutasDAO.class
 prog\retoequipo2\PantallaPrincipal$3.class
 prog\retoequipo2\PantallaPrincipal$6.class
@@ -49,6 +49,7 @@ prog\retoequipo2\PantallaPrincipal$21.class
 prog\retoequipo2\Administrador.class
 prog\retoequipo2\ExportCSV.class
 prog\retoequipo2\PantallaPrincipal$25.class
+prog\retoequipo2\PantallaPrincipal$30.class
 prog\retoequipo2\PantallaPrincipal$10.class
 prog\retoequipo2\PantallaPrincipal$16.class
 prog\retoequipo2\PantallaPrincipal$28.class
