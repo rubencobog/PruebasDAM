@@ -36,11 +36,9 @@ public class ImportCSV {
             BufferedReader reader = new BufferedReader(new FileReader(archivoCSV));
             String linea;
 
-            // Leer la primera línea con el nombre
             String[] general = reader.readLine().split(",", -1);
             txtNomRuta.setText(general[0].trim());
 
-            // Inicializar variables
             double latIni = 0, lonIni = 0;
             double latFin = 0, lonFin = 0;
             double latMax = -Double.MAX_VALUE, lonMax = -Double.MAX_VALUE;
@@ -69,10 +67,8 @@ public class ImportCSV {
                         altAnterior = alt;
                         primerPunto = false;
                     } else {
-                        // Calcular distancia
                         distanciaTotal += calcularDistancia(latAnterior, lonAnterior, lat, lon);
 
-                        // Calcular desnivel
                         double deltaAlt = alt - altAnterior;
                         if (deltaAlt > 0) desnivelPos += deltaAlt;
                         else desnivelNeg += Math.abs(deltaAlt);
@@ -94,10 +90,8 @@ public class ImportCSV {
 
             reader.close();
 
-            // Calcular duración en minutos
             long duracionMin = Duration.between(tiempoIni, tiempoFin).toMinutes();
 
-            // Llenar campos
             txtLatIni.setText(String.format("%.5f", latIni));
             txtLongIni.setText(String.format("%.5f", lonIni));
             txtLatFin.setText(String.format("%.5f", latFin));
@@ -108,7 +102,6 @@ public class ImportCSV {
             txtLatMax.setText(String.format("%.5f", latMax));
             txtLonMax.setText(String.format("%.5f", lonMax));
 
-            // Clasificación
             boolean esCircular = calcularDistancia(latIni, lonIni, latFin, lonFin) < 0.05;
             cmbTipoRuta.setSelectedItem(esCircular ? "Circular" : "Lineal");
 
@@ -129,24 +122,4 @@ public class ImportCSV {
         return R * c;
     }
 }
-/*public static void importar(File archivoGPX, JTextField txtNomRuta){
-        try {
-            if (archivoGPX == null || !archivoGPX.exists()) {
-                throw new IllegalArgumentException("El archivo no existe.");
-            }
-            
-            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder builder = factory.newDocumentBuilder();
-            Document doc = (Document) builder.parse(archivoGPX);
-            doc.getDocumentElement().normalize();
-            NodeList nameList = doc.getElementsByTagName("name");
-            if (nameList.getLength() > 0) {
-                String nombre = nameList.item(0).getTextContent();
-                txtNomRuta.setText(nombre);
-            }
-            
-        } catch (Exception e) {
-            e.printStackTrace();
-            javax.swing.JOptionPane.showMessageDialog(null, "Error al importar el archivo GPX: " + e.getMessage());
-        }
-    } */
+
