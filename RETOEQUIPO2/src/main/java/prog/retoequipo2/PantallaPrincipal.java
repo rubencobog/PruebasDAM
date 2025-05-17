@@ -4,9 +4,11 @@ package prog.retoequipo2;
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
+import java.io.File;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.LinkedList;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -119,6 +121,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         btnSubmitRuta = new javax.swing.JButton();
         btnVolverCrearRuta = new javax.swing.JButton();
         btnSubmitModificacion = new javax.swing.JButton();
+        botonImportar = new javax.swing.JButton();
         PantallaValoracion = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
@@ -536,6 +539,12 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        txtDistancia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDistanciaActionPerformed(evt);
+            }
+        });
+
         txtLatMaxima.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtLatMaximaActionPerformed(evt);
@@ -590,11 +599,18 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        botonImportar.setText("Importar GPX");
+        botonImportar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonImportarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PantallaCrearRutaLayout = new javax.swing.GroupLayout(PantallaCrearRuta);
         PantallaCrearRuta.setLayout(PantallaCrearRutaLayout);
         PantallaCrearRutaLayout.setHorizontalGroup(
             PantallaCrearRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PantallaCrearRutaLayout.createSequentialGroup()
+            .addGroup(PantallaCrearRutaLayout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addGroup(PantallaCrearRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
@@ -609,19 +625,19 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                     .addComponent(jLabel12)
                     .addComponent(jLabel10))
                 .addGap(31, 31, 31)
-                .addGroup(PantallaCrearRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(PantallaCrearRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(botonImportar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtLongIni, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNomRuta, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNomRuta, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
                     .addComponent(txtLatIni, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtLongFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtLatFin, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtDistancia, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtLatMaxima, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(PantallaCrearRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(ClasificacionCombo, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtLongMaxima, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
-                        .addComponent(txtDesnivel, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)))
+                    .addComponent(ClasificacionCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtLongMaxima, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
+                    .addComponent(txtDesnivel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE))
                 .addGap(136, 136, 136)
                 .addGroup(PantallaCrearRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PantallaCrearRutaLayout.createSequentialGroup()
@@ -727,11 +743,17 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                     .addComponent(jLabel12)
                     .addComponent(txtDesnivel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSubmitModificacion))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(PantallaCrearRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSubmitRuta)
-                    .addComponent(btnVolverCrearRuta))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(PantallaCrearRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PantallaCrearRutaLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(PantallaCrearRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnSubmitRuta)
+                            .addComponent(btnVolverCrearRuta))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PantallaCrearRutaLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                        .addComponent(botonImportar)
+                        .addGap(19, 19, 19))))
         );
 
         getContentPane().add(PantallaCrearRuta, "card8");
@@ -1452,6 +1474,23 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnResenaActionPerformed
 
+    private void botonImportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonImportarActionPerformed
+        JFileChooser elegirArchivo= new JFileChooser();
+        int result = elegirArchivo.showOpenDialog(this);
+        
+        if (result == JFileChooser.APPROVE_OPTION){
+            File csvFile = elegirArchivo.getSelectedFile();
+            ImportCSV.importar(csvFile, txtNomRuta, txtLatIni, txtLongIni, txtLatFin, txtLongFinal, 
+                    txtDistancia, txtDuracion, txtDesnivel, txtLatMaxima, txtLongMaxima, ClasificacionCombo);
+        
+            
+        }
+    }//GEN-LAST:event_botonImportarActionPerformed
+
+    private void txtDistanciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDistanciaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDistanciaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1556,6 +1595,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JTable TablaRutasNoValidadas;
     private javax.swing.JTable TablaUsuarios;
     private javax.swing.JComboBox<String> TerrenoCombo;
+    private javax.swing.JButton botonImportar;
     private javax.swing.JButton btnBorrarRuta;
     private javax.swing.JButton btnCrearCalendar;
     private javax.swing.JButton btnCrearRuta;
