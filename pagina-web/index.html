@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Inicio | Rutas al Aire Libre</title>
+  <link rel="stylesheet" href="estilosweb2.css" />
+</head>
+<body>
+
+  <aside class="sidebar">
+    <nav class="sidebar-nav">
+      <h2>Menú</h2>
+      <ul>
+        <li><a href="rutas.html">Todas las rutas</a></li>
+        <li><a href="https://es.wikiloc.com">Rutas Wikiloc</a></li>
+        <li><a href="https://www.decathlon.es">Ropa y accesorios</a></li>
+        <li><a href="https://www.eltiempo.es">Meteorología y tiempo</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="blog.html">Blog de Aventuras</a></li>
+        <li><img src="ChatGPT Image 8 may 2025, 17_14_12.png" width="200"></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <div class="contenido">
+
+    <header>
+      <h1>Tribu Nomada</h1>
+      <p>Rutas al aire libre para todos los gustos</p>
+    </header>
+
+    <nav class="main-nav">
+      <ul>
+        <li><a href="rutas.html">Todas las rutas</a></li>
+        <li><a href="#rutas-destacadas">Rutas Destacadas</a></li>
+        <li><a href="#registro">Registro</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section class="intro">
+        <h2>Rutas Destacadas</h2>
+        <p>Aqui mostramos las rutas mas destacas actualizado semanalmente</p>
+      </section>
+      
+      <section id="rutas-destacadas" class="seccion-rutas">
+        <article class="ruta">
+          <img src="fotoColladosAson3.jpg"  />
+          <h3>Ruta de los Collados del Asón</h3>
+          <p>Dificultad: Moderada | Duración: 4h | Longitud: 12,42 km</p>
+          <a class="boton" href="rutas.html">Ver más</a>
+        </article>
+      </section>
+
+      <section id="rutas-destacadas" class="seccion-rutas">
+        <article class="ruta">
+          <img src="fotoSendaNoja1.jpg"/>
+          <h3>Senda costera de Noja a Santoña</h3>
+          <p>Dificultad: Facil | Duración: 3h | Longitud: 16,49 km</p>
+          <a class="boton" href="rutas.html">Ver más</a>
+        </article>
+      </section>
+
+      <section id="rutas-destacadas" class="seccion-rutas">
+        <article class="ruta">
+          <img src="fotoPicoJano1.jpg" />
+          <h3>Ruta al Pico Jano</h3>
+          <p>Dificultad: Dificil | Duración: 4h | Longitud: 9,84 km</p>
+          <a class="boton" href="rutas.html">Ver más</a>
+        </article>
+      </section>
+
+      <section class="intro">
+        <h2>Descubre nuevas rutas</h2>
+        <p>Consulta las mejores rutas de senderismo, bicicleta o moto y prepárate para disfrutar del aire libre.</p>
+        <video src="video1.mp4" controls poster="imagen1.jpg" width="60%"></video>
+      </section>
+
+      <section id="registro">
+        <div class="form-container">
+        <img src="ChatGPT Image 8 may 2025, 17_14_12.png" >
+        <h2>Formulario de Registro</h2>
+        <form action="/registro" method="POST">
+            <label for="nombre">Nombre y Apellidos:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="email">Correo Electrónico:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="genero">Género:</label>
+            <select id="genero" name="genero" required>
+                <option value="">Selecciona...</option>
+                <option value="masculino">Masculino</option>
+                <option value="femenino">Femenino</option>
+                <option value="otro">Otro</option>
+                <option value="prefiero_no_decirlo">Prefiero no decirlo</option>
+            </select>
+
+            <label for="edad">Edad:</label>
+            <input type="number" id="edad" name="edad" min="0" required>
+
+             <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Enviar</button>
+        </form>
+        </div>
+      </section>
+
+    </main>
+
+    
+
+    <footer>
+      <p>&copy; 2025 Gestión de Rutas Tribu-nomada. Todos los derechos reservados.</p>
+    </footer>
+    
+  </div>
+
+</body>
+</html>
