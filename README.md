@@ -3,16 +3,18 @@
 ![Logo](logo-tribu-nomada.png)
 
 ## INDICE:  
-1.[ESQUEMA_ E/R](iagrama_ER_FINAL.png)  
-2.[ESQUEMA RELACIONAL](https://github.com/rSainz21/DAM1_EQUIPO2_2425/blob/main/Bases%20de%20datos/relacional.PNG)  
-3.[Plantilla guia de despliegue](https://github.com/rSainz21/DAM1_EQUIPO2_2425/blob/main/PLANTILLA%20GUIA%20DE%20DESPLIEGUE.docx)  
-4.[Diagrama de clases](https://github.com/rSainz21/DAM1_EQUIPO2_2425/blob/rama-diagrama-de-clases/Diagrama%20de%20clases%20(sin%20m%C3%A9todos).jpg)  
-5.[Infografia seguridad social](https://github.com/rSainz21/DAM1_EQUIPO2_2425/blob/main/Infograf%C3%ADa%20Seguridad%20Social.pdf)  
-6.[Plantilla xslt](https://github.com/rSainz21/DAM1_EQUIPO2_2425/blob/creacion-de-plantillas-xslt/plantilla_xslt_grupo2.xslt)  
+1.[ESQUEMA_ E/R](./Bases%20de%20datos/diagrama_ER_FINAL.png)  
+2.[ESQUEMA RELACIONAL](./Bases%20de%20datos/relacional.PNG)  
+3.[Plantilla guia de despliegue](./PLANTILLA%20GUIA%20DE%20DESPLIEGUE.docx)  
+4.[Diagrama de clases](./Diagrama%20de%20clases%20(sin%20m%C3%A9todos).jpg)  
+5.[Infografia seguridad social](./Infograf%C3%ADa%20Seguridad%20Social.pdf)  
+6.[Plantilla xslt](./plantilla_xslt_grupo2.xslt)  
 7.[Diagrama casos de uso](Diagrama%20de%20casos.jpg)  
-8.[Plantilla Manual de Usuario](https://github.com/rSainz21/DAM1_EQUIPO2_2425/blob/main/plantilla-manual-usuario.docx)  
-9.[Documentacion de Despliegue de los servidores](https://github.com/rSainz21/DAM1_EQUIPO2_2425/blob/main/documentacion-guia-despliegue-servidores.docx)  
-10.[Infografia Seguridad Social](https://github.com/rSainz21/DAM1_EQUIPO2_2425/blob/main/Infograf%C3%ADa%20Seguridad%20Social.pdf)  
+8.[Plantilla Manual de Usuario](./plantilla-manual-usuario.docx)  
+9.[Documentacion de Despliegue de los servidores](./documentacion-guia-despliegue-servidores.pdf)  
+10.[Tarea de identificacion de riesgos](./tarea-identificacion-riesgos.docx)
+11.[Pagina Web](./pagina-web)
+12.[Aplicacion Java](./Programacion)
 
 
 ## Nombre del Equipo  
