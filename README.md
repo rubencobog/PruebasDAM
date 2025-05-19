@@ -15,6 +15,8 @@
 10.[Tarea de identificacion de riesgos](./tarea-identificacion-riesgos.docx)  
 11.[Pagina Web](./pagina-web)  
 12.[Aplicacion Java](./Programacion)  
+13.[Manual de Usuario]()  
+14.[Maquinas virtuales]()
 
 
 ## Nombre del Equipo  
