@@ -12,9 +12,9 @@
 7.[Diagrama casos de uso](Diagrama%20de%20casos.jpg)  
 8.[Plantilla Manual de Usuario](./plantilla-manual-usuario.docx)  
 9.[Documentacion de Despliegue de los servidores](./documentacion-guia-despliegue-servidores.pdf)  
-10.[Tarea de identificacion de riesgos](./tarea-identificacion-riesgos.docx)
-11.[Pagina Web](./pagina-web)
-12.[Aplicacion Java](./Programacion)
+10.[Tarea de identificacion de riesgos](./tarea-identificacion-riesgos.docx)  
+11.[Pagina Web](./pagina-web)  
+12.[Aplicacion Java](./Programacion)  
 
 
 ## Nombre del Equipo  
