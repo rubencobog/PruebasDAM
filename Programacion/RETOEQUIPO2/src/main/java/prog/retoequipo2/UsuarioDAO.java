@@ -71,7 +71,7 @@ public class UsuarioDAO {
                         case "ADMINISTRADOR" -> {
                             usu = new Administrador(rs.getInt("cod_usu"), rs.getString("email"), rs.getString("nombre"), rs.getString("apellidos"), rs.getString("password"), rs.getDate("fecha_nac").toLocalDate());
                         }
-                        case "DISEÑADOR" -> {
+                        case "DISENADOR" -> {
                             usu = new Disenador_rutas(rs.getInt("cod_usu"), rs.getString("email"), rs.getString("nombre"), rs.getString("apellidos"), rs.getString("password"), rs.getDate("fecha_nac").toLocalDate());
                         }
                         case "PROFESOR" -> {
@@ -110,7 +110,7 @@ public class UsuarioDAO {
                         case "ADMINISTRADOR" -> {
                             usu = new Administrador(rs.getInt("cod_usu"), rs.getString("email"), rs.getString("nombre"), rs.getString("apellidos"), rs.getString("password"), rs.getDate("fecha_nac").toLocalDate());
                         }
-                        case "DISEÑADOR" -> {
+                        case "DISENADOR" -> {
                             usu = new Disenador_rutas(rs.getInt("cod_usu"), rs.getString("email"), rs.getString("nombre"), rs.getString("apellidos"), rs.getString("password"), rs.getDate("fecha_nac").toLocalDate());
                         }
                         case "PROFESOR" -> {
@@ -205,7 +205,7 @@ public class UsuarioDAO {
                         case "ADMINISTRADOR" -> {
                             usu = new Administrador(rs.getInt("cod_usu"), rs.getString("email"), rs.getString("nombre"), rs.getString("apellidos"), rs.getString("password"), rs.getDate("fecha_nac").toLocalDate());
                         }
-                        case "DISEÑADOR" -> {
+                        case "DISENADOR" -> {
                             usu = new Disenador_rutas(rs.getInt("cod_usu"), rs.getString("email"), rs.getString("nombre"), rs.getString("apellidos"), rs.getString("password"), rs.getDate("fecha_nac").toLocalDate());
                         }
                         case "PROFESOR" -> {
@@ -242,7 +242,7 @@ public class UsuarioDAO {
                         case "ADMINISTRADOR" -> {
                             usu = new Administrador(rs.getInt("cod_usu"), rs.getString("email"), rs.getString("nombre"), rs.getString("apellidos"), rs.getString("password"), rs.getDate("fecha_nac").toLocalDate());
                         }
-                        case "DISEÑADOR" -> {
+                        case "DISENADOR" -> {
                             usu = new Disenador_rutas(rs.getInt("cod_usu"), rs.getString("email"), rs.getString("nombre"), rs.getString("apellidos"), rs.getString("password"), rs.getDate("fecha_nac").toLocalDate());
                         }
                         case "PROFESOR" -> {
