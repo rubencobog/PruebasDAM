@@ -18,6 +18,7 @@
 13.[Manual de Usuario](./manual-de-usuario-aplicacion.pdf)  
 14.[Maquina virtual servidor BD](https://educantabria.sharepoint.com/:u:/r/sites/RETODAM1DAM12025-39009471-DAM1-EQUIPO2/Documentos%20compartidos/DAM1-EQUIPO2/UbuntuServer-Servidor-BD.ova?csf=1&web=1&e=bB3EIW)  
 15.[Maquina virtual servidor WEB](https://educantabria.sharepoint.com/:u:/r/sites/RETODAM1DAM12025-39009471-DAM1-EQUIPO2/Documentos%20compartidos/DAM1-EQUIPO2/UbuntuServer-Servidor-WEB.ova?csf=1&web=1&e=xFZuN7)  
+16.[Plan de emergencia](./plan-emergencia-equipo2.pdf)
 
 
 ## Nombre del Equipo  
