@@ -84,7 +84,7 @@ public class RutasDAO {
         Ruta nuevaruta = null;
         String sql = "SELECT nombre, fecha, latitud_ini, longitud_ini, latitud_fin, longitud_fin, distancia, desnivel_acumulado, "
                 + "latitud_max, longitud_max, duracion, clasificacion, tipo_terreno, indicaciones, accesib_inclusiv,"
-                + "familiar, url_gpx, estado_ruta_validada, recomendaciones, zona_geografica, usuarios_cod_usu"
+                + "familiar, url_gpx, estado_ruta_validada, recomendaciones, zona_geografica, valo_media, usuarios_cod_usu"
                 + " FROM rutas WHERE id_ruta=?";
         try (PreparedStatement ps = conn.prepareStatement(sql);) {
             ps.setInt(1, id);
@@ -96,6 +96,7 @@ public class RutasDAO {
                             CLASIFICACION.valueOf(rs.getString("clasificacion")), rs.getInt("desnivel_acumulado"), rs.getInt("tipo_terreno"), rs.getInt("indicaciones"),
                             rs.getBoolean("accesib_inclusiv"), rs.getBoolean("familiar"), rs.getString("url_gpx"), rs.getString("recomendaciones"),
                             rs.getString("zona_geografica"), usu);
+                    nuevaruta.setValoracion_media(rs.getDouble("valo_media"));
                 }
             }
         } catch (SQLException ex) {
