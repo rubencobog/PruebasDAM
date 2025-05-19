@@ -3,17 +3,32 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package prog.retoequipo2;
-
+        /**
+ *Clase que representa las Actividades que se pueden realizar en una ruta
+ * 
+ * @author Rubén
+ * 
+ */  
 public class Actividad {
 private int id_actividad;
 private String nom_actividad;
 private String descripcion;
-
+        /**
+ *Constructor que instancia una Actividad con sus atributos
+ * 
+ * @param nom_actividad nombre de la actividad 
+ * @param descripcion descripcion de la actividad
+ * 
+ */  
     public Actividad(String nom_actividad, String descripcion) {
         this.nom_actividad = nom_actividad;
         this.descripcion = descripcion;
     }
-
+        /**
+ *Constructor que instancia una Actividad vacía
+ * 
+ * 
+ */
     public Actividad() {
     }
 

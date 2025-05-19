@@ -8,8 +8,9 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 /**
- *
- * @author Rubéns
+ *Clase que representa la estructura y atributos compartidos entre Puntos de interés y puntos de peligro
+ * 
+ * @author Rubén
  */
 public abstract class Puntos_ruta implements Comparable<Puntos_ruta>{
     protected int id_pr;
@@ -21,8 +22,20 @@ protected double latitud;
 protected String descripcion;
 protected ArrayList<Imagen> imagen;
 
+/**
+ *Constructor que representa los atributos compartidos de las clases que heredarán de Puntos_ruta
+ * 
+ * @param id_pr representa el id del punto que se genera en la base de datos
+ * @param num_orden numero del punto en relacion a la ruta
+ * @param nombre nombre del punto
+ * @param timestamp el día y hora por la que se pasó por dicho punto
+ * @param longitud longitud del punto
+ * @param latitud latitud del punto
+ * @param descripcion texto que describe el punto
+ * 
+ */
     public Puntos_ruta(int id_pr, int num_orden, String nombre, LocalDateTime timestamp, double longitud, double latitud, String descripcion) {
-        this.imagen = new ArrayList<Imagen>();
+        this.imagen = new ArrayList<>();
         this.id_pr = id_pr;
         this.num_orden = num_orden;
         this.nombre = nombre;
@@ -31,9 +44,20 @@ protected ArrayList<Imagen> imagen;
         this.latitud = latitud;
         this.descripcion = descripcion;
     }
-
+/**
+ *Constructor que representa los atributos compartidos de las clases que heredarán de Puntos_ruta
+ * menos el id
+ * 
+ * @param num_orden numero del punto en relacion a la ruta
+ * @param nombre nombre del punto
+ * @param timestamp el día y hora por la que se pasó por dicho punto
+ * @param longitud longitud del punto
+ * @param latitud latitud del punto
+ * @param descripcion texto que describe el punto
+ * 
+ */
     public Puntos_ruta(int num_orden, String nombre, LocalDateTime timestamp, double longitud, double latitud, String descripcion) {
-        this.imagen = new ArrayList<Imagen>();
+        this.imagen = new ArrayList<>();
         this.num_orden = num_orden;
         this.nombre = nombre;
         this.timestamp = timestamp;

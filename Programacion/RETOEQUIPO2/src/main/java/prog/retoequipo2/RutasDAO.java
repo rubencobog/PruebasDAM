@@ -13,15 +13,24 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-/**
- *
- * @author Rubéns
+/** 
+ *Clase que se encarga de gestionar las Rutas en relacion a la base de datos, siguiendo el patron CRUD
+ * @author Rubén
  */
 public class RutasDAO {
 
     private Connection conn = ConexionBD.getInstance().getConn();
     private UsuarioDAO usuarioBD = new UsuarioDAO();
-
+  /**
+ *Inserta una ruta en la base de datos.
+ *
+ * Este método utiliza una sentencia SQL preparada para insertar una fila
+ * en la tabla "rutas", con todos los atributos de una ruta a excepción del id que se autogenera
+ *
+ * @author Rubén
+ * @param ruta el objeto {@link Ruta} que contiene la ruta que se va a insertar
+ * @return {@code true} si la ruta fue insertada correctamente en la base de datos; {@code false} en caso contrario
+ */
     public boolean insertarRuta(Ruta ruta) {
         boolean insertada = false;
         String sql = "INSERT INTO rutas (nombre,fecha,latitud_ini,longitud_ini,latitud_fin,longitud_fin,distancia,desnivel_acumulado,"
@@ -61,7 +70,16 @@ public class RutasDAO {
         }
         return insertada;
     }
-
+  /**
+ *Devuelve una ruta existente en la base de datos a través de su id.
+ *
+ * Este método utiliza una sentencia SQL preparada para devolver los datos de una ruta
+ * buscada a partir de su id
+ *
+ * @author Rubén
+ * @param id de tipo int que representa el id de la ruta que se busca
+ * @return un objeto tipo {@link Ruta}; objeto null en caso de no existir el id
+ */
     public Ruta obtenerRutaPorId(int id) {
         Ruta nuevaruta = null;
         String sql = "SELECT nombre, fecha, latitud_ini, longitud_ini, latitud_fin, longitud_fin, distancia, desnivel_acumulado, "
@@ -85,7 +103,14 @@ public class RutasDAO {
         }
         return nuevaruta;
     }
-
+        /**
+ * Genera una lista con todas las rutas existentes en la base de datos.
+ *
+ * Este método utiliza una sentencia SQL para devolver los datos de las rutas existentes en la base de datos
+ *
+ * @author Rubén
+ * @return una {@link java.util.LinkedList} con los objetos de tipo {@link Ruta} o vacía si no hay ninguna en la base de datos
+ */  
     public LinkedList<Ruta> muestraRutas() {
         LinkedList<Ruta> rutas = new LinkedList<>();
         String sql = "SELECT * FROM rutas";
@@ -112,7 +137,16 @@ public class RutasDAO {
         }
         return rutas;
     }
-
+  /**
+ * Modifica una ruta ya existente en la base de datos.
+ *
+ * Este método utiliza una sentencia SQL preparada para modificar una fila
+ * en la tabla "rutas", pudiendo cambiar sus atributos salvo el id
+ *
+ * @author Guille
+ * @param ruta el objeto {@link Ruta} que contiene la ruta actualizada
+ * @return {@code true} si la ruta fue modificada correctamente en la base de datos; {@code false} en caso contrario
+ */
     public boolean modificaRuta(Ruta ruta) {
         boolean modificada = false;
         String sql = "UPDATE rutas SET nombre=?,fecha=?,latitud_ini=?,longitud_ini=?,latitud_fin=?,longitud_fin=?,distancia=?,desnivel_acumulado=?,"
@@ -153,7 +187,16 @@ public class RutasDAO {
         }
         return modificada;
     }
-
+  /**
+ *Borra una ruta existente en la base de datos a través de su id.
+ *
+ * Este método utiliza una sentencia SQL preparada para eliminar una fila en la tabla "rutas"
+ * buscando por su atributo id
+ *
+ * @author Rubén
+ * @param id de tipo int que representa el id de la ruta que desea borrar
+ * @return {@code true} si se lleva a cabo la eliminación exitosamente; {@code false} en caso contrario
+ */
     public boolean borrarRuta(int id) {
         boolean borrada = false;
         String sql = "DELETE FROM rutas WHERE id_ruta=?";
@@ -168,7 +211,16 @@ public class RutasDAO {
         }
         return borrada;
     }
-
+  /**
+ *Cambia el estado de una ruta existente en la base de datos a "validado".
+ *
+ * Este método utiliza una sentencia SQL preparada para modificar una fila de la tabla
+ * "rutas" y cambiar un atributo booleano a verdadero
+ *
+ * @author Rubén
+ * @param ruta objeto de tipo {@link Ruta} que se quiere validar
+ * @return {@code true} si se lleva a cabo el cambio de estado correctamente; {@code false} en caso contrario
+ */
     public boolean validarRuta(Ruta ruta) {
         boolean validada = false;
         String sql = "UPDATE rutas SET estado_ruta_validada=TRUE WHERE id_ruta=?";
@@ -183,7 +235,14 @@ public class RutasDAO {
         }
         return validada;
     }
-
+        /**
+ * Genera una lista con todas las rutas existentes en la base de datos cuyo estado está en "no validada".
+ *
+ * Este método utiliza una sentencia SQL devolver los datos de las rutas existentes en la base de datos y no validadas
+ *
+ * @author Rubén
+ * @return una {@link java.util.ArrayList} con los objetos de tipo {@link Ruta} o vacía si no hay ninguna en la base de datos
+ */  
     public ArrayList<Ruta> rutasNoValidadas() {
         ArrayList<Ruta> noValidadas = new ArrayList<>();
         String sql = "SELECT * FROM rutas WHERE estado_ruta_validada=FALSE;";
@@ -202,9 +261,16 @@ public class RutasDAO {
         }
         return noValidadas;
     }
-    
-    public LinkedList<Ruta> rutasValidadas() {
-        LinkedList<Ruta> validadas = new LinkedList<>();
+        /**
+ * Genera una lista con todas las rutas existentes en la base de datos cuyo estado está en "validada".
+ *
+ * Este método utiliza una sentencia SQL devolver los datos de las rutas existentes en la base de datos y validadas
+ *
+ * @author Rubén
+ * @return una {@link java.util.ArrayList} con los objetos de tipo {@link Ruta} o vacía si no hay ninguna en la base de datos
+ */     
+    public ArrayList<Ruta> rutasValidadas() {
+        ArrayList<Ruta> validadas = new ArrayList<>();
         String sql = "SELECT * FROM rutas WHERE estado_ruta_validada=TRUE;";
         try (Statement stt = conn.createStatement(); ResultSet rs = stt.executeQuery(sql)) {
             while (rs.next()) {
