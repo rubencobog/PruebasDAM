@@ -27,12 +27,12 @@ CREATE TABLE IF NOT EXISTS `rutas_airelibre`.`usuarios` (
   `apellidos` VARCHAR(45) NOT NULL,
   `password` VARCHAR(50) NOT NULL,
   `fecha_nac` DATE NOT NULL,
-  `rol` ENUM('administrador', 'diseñador', 'profesor', 'alumno', 'usuario_registrado') NOT NULL,
+  `rol` ENUM('administrador', 'disenador', 'profesor', 'alumno', 'usuario_registrado') NOT NULL,
   `validado` TINYINT NOT NULL,
   PRIMARY KEY (`cod_usu`),
   UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 5
+AUTO_INCREMENT = 7
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -74,7 +74,7 @@ CREATE TABLE IF NOT EXISTS `rutas_airelibre`.`rutas` (
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 12
+AUTO_INCREMENT = 16
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_as_ci;
 
@@ -95,6 +95,7 @@ CREATE TABLE IF NOT EXISTS `rutas_airelibre`.`actividades` (
     ON DELETE SET NULL
     ON UPDATE SET NULL)
 ENGINE = InnoDB
+AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -149,7 +150,7 @@ CREATE TABLE IF NOT EXISTS `rutas_airelibre`.`puntospeligro` (
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 2
+AUTO_INCREMENT = 3
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -183,8 +184,8 @@ CREATE TABLE IF NOT EXISTS `rutas_airelibre`.`puntosinteres` (
   `num_orden` INT NOT NULL,
   `latitud` DOUBLE NOT NULL,
   `longitud` DOUBLE NOT NULL,
-  `timestamp` DATE NOT NULL,
-  `tipo` ENUM('histórico-arqueológico') NOT NULL,
+  `timestamp` TIMESTAMP NOT NULL,
+  `tipo` ENUM('historico_arqueologico', 'naturaleza', 'mirador', 'area_de_descanso', 'punto_de_agua') NOT NULL,
   `descripcion` VARCHAR(125) NOT NULL,
   `caract_especiales` VARCHAR(125) NOT NULL,
   `rutas_id_ruta` INT NOT NULL,
@@ -196,6 +197,7 @@ CREATE TABLE IF NOT EXISTS `rutas_airelibre`.`puntosinteres` (
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB
+AUTO_INCREMENT = 6
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -229,6 +231,7 @@ CREATE TABLE IF NOT EXISTS `rutas_airelibre`.`periodos` (
   `descrip` VARCHAR(125) NOT NULL,
   PRIMARY KEY (`id_periodo`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -307,6 +310,7 @@ CREATE TABLE IF NOT EXISTS `rutas_airelibre`.`valoraciones` (
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB
+AUTO_INCREMENT = 3
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -374,6 +378,22 @@ set nivel=round(suma/c);
 update rutas set nivel_riesgo=nivel where id_ruta=new.rutas_id_ruta;
 
 end$$
+
+USE `rutas_airelibre`$$
+CREATE
+DEFINER=`root`@`localhost`
+TRIGGER `rutas_airelibre`.`calcular_valoracion`
+AFTER INSERT ON `rutas_airelibre`.`valoraciones`
+FOR EACH ROW
+BEGIN
+  UPDATE rutas
+  SET valo_media = (
+    SELECT ROUND(AVG((dificultad + belleza + interes_cultu) / 3), 2)
+    FROM valoraciones
+    WHERE rutas_id_ruta = NEW.rutas_id_ruta
+  )
+  WHERE id_ruta = NEW.rutas_id_ruta;
+END$$
 
 
 DELIMITER ;
