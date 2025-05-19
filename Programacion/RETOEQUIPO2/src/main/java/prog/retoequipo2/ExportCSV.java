@@ -10,11 +10,18 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 /**
- *
- * @author DAM110
+ *Clase que se encarga de exportar los datos de una ruta a un fichero
+ * 
+ * @author Guille
  */
 public class ExportCSV {
-
+/**
+ *El método se encarga de exportar los datos de una ruta a un archivo formato CSV
+ * 
+ * @author Guille
+ * @param ruta objeto de tipo {@link Ruta} que representa la ruta que se va a exportar
+ * @param archivoExport que se corresponde con la URL donde se aloja el archivo
+ */
     public static void exportarRuta(Ruta ruta, String archivoExport) {
         File archivo = new File(archivoExport);
 

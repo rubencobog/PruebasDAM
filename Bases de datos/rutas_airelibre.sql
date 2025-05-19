@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `rutas_airelibre`.`usuarios` (
   `apellidos` VARCHAR(45) NOT NULL,
   `password` VARCHAR(50) NOT NULL,
   `fecha_nac` DATE NOT NULL,
-  `rol` ENUM('administrador', 'diseñador', 'profesor', 'alumno', 'usuario_registrado') NOT NULL,
+  `rol` ENUM('administrador', 'disenador', 'profesor', 'alumno', 'usuario_registrado') NOT NULL,
   `validado` TINYINT NOT NULL,
   PRIMARY KEY (`cod_usu`),
   UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE)
@@ -375,6 +375,21 @@ update rutas set nivel_riesgo=nivel where id_ruta=new.rutas_id_ruta;
 
 end$$
 
+USE `rutas_airelibre`$$
+CREATE
+DEFINER=`root`@`localhost`
+TRIGGER `rutas_airelibre`.`calcular_valoracion`
+AFTER INSERT ON `rutas_airelibre`.`valoraciones`
+FOR EACH ROW
+BEGIN
+  UPDATE rutas
+  SET valo_media = (
+    SELECT ROUND(AVG((dificultad + belleza + interes_cultu) / 3), 2)
+    FROM valoraciones
+    WHERE rutas_id_ruta = NEW.rutas_id_ruta
+  )
+  WHERE id_ruta = NEW.rutas_id_ruta;
+END$$
 
 DELIMITER ;
 

@@ -381,7 +381,7 @@ public class MetodosDAO {
                     while (rs.next()) {
                         Punto_peligro pp = new Punto_peligro(rs.getInt("id_trackpoint"), rs.getInt("num_orden"), rs.getString("nombre"),
                                 rs.getTimestamp("timestamp").toLocalDateTime(), rs.getDouble("longitud"),
-                                rs.getDouble("latitud"), rs.getString("descripcion"), rs.getDouble("km"), rs.getInt("gravedad"),
+                                rs.getDouble("latitud"), rs.getString("descripcion"), rs.getDouble("km"), rs.getInt("nivel_gravedad"),
                                 rs.getString("descripcion_gravedad"));
                         if (!puntos_peligro.add(pp)) {
                             System.out.println("error al insertar punto en la lista");

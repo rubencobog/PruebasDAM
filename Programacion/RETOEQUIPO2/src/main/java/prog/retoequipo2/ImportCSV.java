@@ -16,11 +16,28 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 /**
- *
- * @author DAM110
+ *Clase que se encarga de pasar datos de un CSV a objetos tipo ruta
+ * 
+ * @author Guille
  */
 public class ImportCSV {
-
+/**
+ *El método se encarga de importar los datos de una ruta desde un archivo formato CSV
+ * 
+ * @author Guille
+ * @param archivoCSV el archivo del que se extraen los datos
+ * @param txtNomRuta el nombre del campo que recibe el nombre de la ruta que se debe rellenar
+ * @param txtLatIni el nombre del campo que recibe la latitud inicial a rellenar
+ * @param txtLongIni el nombre del campo que recibe la longitud inicial a rellenar
+ * @param txtLatFin el nombre del campo que recibe la latitud final a rellenar
+ * @param txtLongFinal el nombre del campo que recibe la longitud final a rellenar
+ * @param txtDistancia el nombre del campo que recibe la distancia a rellenar
+ * @param txtDuracion el nombre del campo que recibe la duracion de la ruta a rellenar
+ * @param txtDesnivel el nombre del campo que recibe el desnivel total de la ruta
+ * @param txtLatMax el nombre del campo que recibe la latitud máxima de la ruta
+ * @param txtLonMax el nombre del campo que recibe la longitud máxima de la ruta
+ * @param cmbTipoRuta el nombre del campo que recibe el tipo de ruta de la que se trata
+ */
         public static void importar(File archivoCSV,JTextField txtNomRuta,JTextField txtLatIni,
                                 JTextField txtLongIni,JTextField txtLatFin,JTextField txtLongFinal,
                                 JTextField txtDistancia,JTextField txtDuracion,JTextField txtDesnivel,
@@ -109,6 +126,15 @@ public class ImportCSV {
         }
     }
 
+/**
+ *El método se encarga de calcular la distancia de la ruta
+ * 
+ * @author Guille
+ * @param lat1 latitud inicial
+ * @param lon1 longitud inicial
+ * @param lat2 latitud final
+ * @param lon2 longitud final
+ */
     private static double calcularDistancia(double lat1, double lon1, double lat2, double lon2) {
         final int R = 6371; 
         double dLat = Math.toRadians(lat2 - lat1);
