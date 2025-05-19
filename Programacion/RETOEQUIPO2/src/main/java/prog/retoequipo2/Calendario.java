@@ -5,11 +5,12 @@
 package prog.retoequipo2;
 
 import java.time.LocalDate;
-
-/**
+         /**
+ *Representa el calendario que los usuarios de tipo Profesor podrán crear
  *
- * @author DAM126
- */
+ *
+ * @author Rubén
+ */  
 public class Calendario {
 private int id_calendar;
 private LocalDate fecha;

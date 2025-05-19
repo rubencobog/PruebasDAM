@@ -7,7 +7,13 @@ package prog.retoequipo2;
 import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.TreeSet;
-
+             /**
+ *Clase que representa las Rutas que serán añadidas, modificadas y borradas en la base de datos junto con
+ * sus atributos
+ *
+ *
+ * @author Rubén
+ */
 public class Ruta {
 
     private int id_ruta;
@@ -40,11 +46,41 @@ public class Ruta {
     private TreeSet<Puntos_ruta> puntos_ruta;
     private LinkedList<Resena> resenas;
     private LinkedList<Valoracion> valoraciones;
+    private LinkedList<Periodo> periodos;
+    private LinkedList<Actividad> actividades;
 
+             /**
+ *Crea una instancia de Ruta con todos sus atributos
+ *
+ *
+ * @param id_ruta representa el id de la ruta en la base de datos
+ * @param nombre nombre de la ruta
+ * @param fecha fecha de creacion de la ruta
+ * @param longitud_ini longitud en la que empieza la ruta
+ * @param latitud_ini latitud en la que empieza la ruta
+ * @param longitud_fin longitud en la que termina la ruta
+ * @param latitud_fin latitud en la que termina la ruta
+ * @param distancia_total kms de recorrido de la ruta
+ * @param duracion minutos que dura la ruta aproximadamente
+ * @param latitud_max latitud máxima de la ruta
+ * @param longitud_max longitud máxima de la ruta
+ * @param clasificacion enum que representa el tipo de ruta
+ * @param indicaciones clasificacion del 1-5 para calcular cómo de bien señalizada está la ruta
+ * @param desnivel_acumulado clasificacion del 1-5 para calcular el nivel de esfuerzo que requiere la ruta
+ * @param tipo_terreno clasificacion del 1-5 para 
+ * @param accesible_inclusivo indica si se trata de una ruta con accesibilidad
+ * @param familiar indica si se trata de una ruta familiar
+ * @param url_gpx dirección del gpx de la ruta
+ * @param recomendaciones recomendaciones a la hora de hacer la ruta
+ * @param zona_geografica Localizacion de la ruta
+ * @param creador objeto de tipo {@link Usuario} que representa al usuario creador de la ruta
+ */ 
     public Ruta(int id_ruta, String nombre, LocalDate fecha, double longitud_ini, double latitud_ini, double longitud_fin, double latitud_fin, int distancia_total, int duracion, double latitud_max, double longitud_max, CLASIFICACION clasificacion, int desnivel_acumulado, int tipo_terreno, int indicaciones, boolean accesible_inclusivo, boolean familiar, String url_gpx, String recomendaciones, String zona_geografica, Usuario creador) {
         puntos_ruta = new TreeSet<>();
         resenas = new LinkedList<>();
         valoraciones = new LinkedList<>();
+        periodos = new LinkedList<>();
+        actividades = new LinkedList<>();
         this.id_ruta = id_ruta;
         this.nombre = nombre;
         this.fecha = fecha;
@@ -62,7 +98,7 @@ public class Ruta {
         this.desnivel_acumulado = desnivel_acumulado;
         this.tipo_terreno = tipo_terreno;
         this.indicaciones = indicaciones;
-        this.actividad =new Actividad();
+        this.actividad = new Actividad();
         this.periodo = new Periodo();
         this.accesible_inclusivo = accesible_inclusivo;
         this.familiar = familiar;
@@ -73,11 +109,37 @@ public class Ruta {
         this.valoracion_media = calcularValoMedia();
         this.creador = creador;
     }
-
+         /**
+ *Crea una instancia de Ruta con todos sus atributos menos el id.
+ *
+ *
+ * @param nombre nombre de la ruta
+ * @param fecha fecha de creacion de la ruta
+ * @param longitud_ini longitud en la que empieza la ruta
+ * @param latitud_ini latitud en la que empieza la ruta
+ * @param longitud_fin longitud en la que termina la ruta
+ * @param latitud_fin latitud en la que termina la ruta
+ * @param distancia_total kms de recorrido de la ruta
+ * @param duracion minutos que dura la ruta aproximadamente
+ * @param latitud_max latitud máxima de la ruta
+ * @param longitud_max longitud máxima de la ruta
+ * @param clasificacion enum que representa el tipo de ruta
+ * @param indicaciones clasificacion del 1-5 para calcular cómo de bien señalizada está la ruta
+ * @param desnivel_acumulado clasificacion del 1-5 para calcular el nivel de esfuerzo que requiere la ruta
+ * @param tipo_terreno clasificacion del 1-5 para 
+ * @param accesible_inclusivo indica si se trata de una ruta con accesibilidad
+ * @param familiar indica si se trata de una ruta familiar
+ * @param url_gpx dirección del gpx de la ruta
+ * @param recomendaciones recomendaciones a la hora de hacer la ruta
+ * @param zona_geografica Localizacion de la ruta
+ * @param creador objeto de tipo {@link Usuario} que representa al usuario creador de la ruta
+ */ 
     public Ruta(String nombre, LocalDate fecha, double longitud_ini, double latitud_ini, double longitud_fin, double latitud_fin, int distancia_total, int duracion, double latitud_max, double longitud_max, CLASIFICACION clasificacion, int desnivel_acumulado, int tipo_terreno, int indicaciones, boolean accesible_inclusivo, boolean familiar, String url_gpx, String recomendaciones, String zona_geografica, Usuario creador) {
         puntos_ruta = new TreeSet<>();
         resenas = new LinkedList<>();
         valoraciones = new LinkedList<>();
+        periodos = new LinkedList<>();
+        actividades = new LinkedList<>();
         this.nombre = nombre;
         this.fecha = fecha;
         this.longitud_ini = longitud_ini;
@@ -94,7 +156,7 @@ public class Ruta {
         this.desnivel_acumulado = desnivel_acumulado;
         this.tipo_terreno = tipo_terreno;
         this.indicaciones = indicaciones;
-        this.actividad =new Actividad();
+        this.actividad = new Actividad();
         this.periodo = new Periodo();
         this.accesible_inclusivo = accesible_inclusivo;
         this.familiar = familiar;
@@ -346,23 +408,33 @@ public class Ruta {
     public void setValoracion_media(double valoracion_media) {
         this.valoracion_media = valoracion_media;
     }
-
+         /**
+ *Metodo que calcula el nivel de riesgo de la ruta en funcion de los puntos de peligro registrados en la misma
+ *
+ *
+ * @author Rubén
+ */ 
     private int calcularRiesgo() {
         int riesgo = 0;
         int riesgoAcumulado = 0;
-        int pps=0;
+        int pps = 0;
         if (!puntos_ruta.isEmpty()) {
             for (Puntos_ruta p : puntos_ruta) {
-                if(p instanceof Punto_peligro){
-                riesgoAcumulado += ((Punto_peligro) p).getNivel_gravedad();
-                pps++;
-            }
+                if (p instanceof Punto_peligro) {
+                    riesgoAcumulado += ((Punto_peligro) p).getNivel_gravedad();
+                    pps++;
+                }
             }
             riesgo = Math.round((float) riesgoAcumulado / pps);
         }
         return riesgo;
     }
-
+         /**
+ *Metodo que calcula la valoracion media de la ruta en funcion de las valoraciones que tenga registradas
+ *
+ *
+ * @author Rubén
+ */ 
     private double calcularValoMedia() {
         double valo_media = 0;
         double valo_acumulada = 0;
@@ -374,7 +446,12 @@ public class Ruta {
         }
         return valo_media;
     }
-
+         /**
+ *Metodo que calcula el nivel de esfuerzo de la ruta en base a los atributos de la misma
+ *
+ *
+ * @author Rubén
+ */ 
     private int calcularEsfuerzo() {
         int esfDuracion = 0;
         if (this.duracion < 31) {
@@ -421,7 +498,13 @@ public class Ruta {
         }
         return Math.round((float) (esfDuracion + esfDistancia + esfDesnivel) / 3);
     }
-
+         /**
+ *Inserta un punto de ruta en la lista de puntos de ruta de la ruta
+ *
+ * @param pr objeto de tipo {@link Puntos_ruta} que representa el punto de ruta a añadir
+ * @author Rubén
+ * @return {@code true} si el punto fue añadido a la lista; {@code false} en caso contrario
+ */ 
     public boolean insertaPuntosRuta(Puntos_ruta pr) {
         boolean insertado = false;
         if (this.puntos_ruta.add(pr)) {
@@ -429,7 +512,13 @@ public class Ruta {
         }
         return insertado;
     }
-
+         /**
+ *Inserta una reseña en la lista de reseñas de la ruta
+ *
+ * @author Rubén
+ * @param resena objeto de tipo {@link Resena} que representa la reseña a añadir
+ * @return {@code true} si la reseña se añadió a la lista; {@code false} en caso contrario
+ */
     public boolean insertaResena(Resena resena) {
         boolean insertada = false;
         if (this.resenas.add(resena)) {
@@ -437,7 +526,13 @@ public class Ruta {
         }
         return insertada;
     }
-
+         /**
+ *Inserta una Valoracion la lista de valoraciones de la ruta
+ *
+ * @author Rubén
+ * @param valo objeto de tipo {@link Valoracion} que representa la valoracion a añadir
+ * @return {@code true} si la Valoracion se insertó en la lista; {@code false} en caso contrario
+ */
     public boolean insertaValoracion(Valoracion valo) {
         boolean insertada = false;
         if (this.valoraciones.add(valo)) {
@@ -445,7 +540,13 @@ public class Ruta {
         }
         return insertada;
     }
-
+         /**
+ *Borra un punto de ruta en la lista de puntos de ruta de la ruta
+ *
+ * @author Rubén
+ * @param pr objeto de tipo {@link Puntos_ruta} que representa el punto de ruta a borrar
+ * @return {@code true} si el punto de ruta fue borrado de la lista; {@code false} en caso contrario
+ */ 
     public boolean borraPuntoRuta(Puntos_ruta pr) {
         boolean borrado = false;
         if (this.puntos_ruta.contains(pr)) {
@@ -454,8 +555,13 @@ public class Ruta {
         }
         return borrado;
     }
-
-
+         /**
+ *Borra una reseña en la lista de reseñas de la ruta
+ *
+ * @author Rubén
+ * @param resena objeto de tipo {@link Resena} que representa la reseña a borrar
+ * @return {@code true} si la reseña se borró de la lista; {@code false} en caso contrario
+ */
     public boolean borraResena(Resena resena) {
         boolean borrada = false;
         if (this.resenas.contains(resena)) {
@@ -464,12 +570,19 @@ public class Ruta {
         }
         return borrada;
     }
-        public boolean borraValoracion(Valoracion valo) {
+         /**
+ *Borra una Valoracion de la lista de valoraciones de la ruta
+ *
+ * @author Rubén
+ * @param valo objeto de tipo {@link Valoracion} que representa la valoracion a borrar
+ * @return {@code true} si la Valoración fue borrada de la lista; {@code false} en caso contrario
+ */
+    public boolean borraValoracion(Valoracion valo) {
         boolean borrada = false;
         if (this.valoraciones.contains(valo)) {
             valoraciones.remove(valo);
             borrada = true;
         }
         return borrada;
-    } 
+    }
 }
