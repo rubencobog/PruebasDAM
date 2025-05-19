@@ -7,7 +7,7 @@
 2.[ESQUEMA RELACIONAL](./Bases%20de%20datos/relacional.PNG)  
 3.[Plantilla guia de despliegue](./PLANTILLA%20GUIA%20DE%20DESPLIEGUE.docx)  
 4.[Diagrama de clases](./Diagrama%20de%20clases%20(sin%20m%C3%A9todos).jpg)  
-5.[Infografia seguridad social](./Infograf%C3%ADa%20Seguridad%20Social.pdf)  
+5.[Infografia seguridad social](./Infograf%C3%ADa%20Seguridad%20Social.pdf)    
 6.[Plantilla xslt](./plantilla_xslt_grupo2.xslt)  
 7.[Diagrama casos de uso](Diagrama%20de%20casos.jpg)  
 8.[Plantilla Manual de Usuario](./plantilla-manual-usuario.docx)  
