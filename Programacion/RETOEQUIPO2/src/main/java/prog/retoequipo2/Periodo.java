@@ -5,19 +5,30 @@
 package prog.retoequipo2;
 
 /**
- *
- * @author DAM126
+ *Clase que representa los periodos en los que se remocienda hacer una ruta
+ * 
+ * @author Rubén
  */
 public class Periodo {
 private int id_periodo;
 private String nom_periodo;
 private String descripcion;
-
+        /**
+ *Constructor que instancia un periodo con sus atributos
+ * 
+ * @param nom_periodo nombre del periodo
+ * @param descripcion descripcion del periodo
+ * 
+ */ 
     public Periodo(String nom_periodo, String descripcion) {
         this.nom_periodo = nom_periodo;
         this.descripcion = descripcion;
     }
-
+        /**
+ *Constructor que instancia un periodo vacío
+ * 
+ * 
+ */ 
     public Periodo() {
     }
 

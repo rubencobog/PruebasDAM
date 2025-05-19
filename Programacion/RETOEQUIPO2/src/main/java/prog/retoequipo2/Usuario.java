@@ -7,10 +7,11 @@ package prog.retoequipo2;
 import java.time.LocalDate;
 import java.util.List;
 
-/**
+         /**
+ *Representa la estructura de datos básica que tienen todos los tipos de Usuarios, que heredarán de esta
  *
- * @author DAM126
- */
+ *
+ */  
 public abstract class Usuario {
 protected int id;
 protected String email;
@@ -21,6 +22,15 @@ protected LocalDate fecha_nac;
 protected ROL rol;
 protected boolean validado;
 
+         /**
+ *Crea una instancia de Usuario con todos sus atributos salvo el id.
+ *
+ *
+ * @param email el email del Usuario
+ * @param nombre el nombre del Usuario
+ * @param password la contraseña del Usuario
+ * @param fecha_nac la fecha de nacimiento del Usuario
+ */  
     public Usuario(String email, String nombre, String apellidos, String password, LocalDate fecha_nac) {
         this.email = email;
         this.nombre = nombre;
@@ -29,7 +39,17 @@ protected boolean validado;
         this.fecha_nac = fecha_nac;
         this.validado=false;   
     }
-
+         /**
+ *Crea una instancia de Usuario con todos sus atributos
+ *
+ *
+ * @author Rubén
+ * @param id el id del Usuario que se registra en la base de datos
+ * @param email el email del Usuario
+ * @param nombre el nombre del Usuario
+ * @param password la contraseña del Usuario
+ * @param fecha_nac la fecha de nacimiento del Usuario
+ */ 
     public Usuario(int id, String email, String nombre, String apellidos, String password, LocalDate fecha_nac) {
         this.id = id;
         this.email = email;

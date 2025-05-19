@@ -13,13 +13,22 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
- *
- * @author DAM126
+ *Clase que se encarga de gestionar los Usuarios en relacion a la base de datos, siguiendo el patron CRUD
+ * @author Rubén
  */
 public class UsuarioDAO {
 
     private Connection conn = ConexionBD.getInstance().getConn();
-
+ /**
+ *Inserta un usuario en la base de datos.
+ *
+ * Este método utiliza una sentencia SQL preparada para insertar una fila
+ * en la tabla "usuarios", con todos los atributos de un usuario a excepción del id que se autogenera
+ *
+ * @author Rubén
+ * @param usu el objeto {@link Usuario} que contiene los datos del usuario que se va a insertar
+ * @return {@code true} si el usuario fue insertado correctamente en la base de datos; {@code false} en caso contrario
+ */
     public boolean insertaUsuario(Usuario usu) {
         boolean insertado = false;
         String sql = "INSERT INTO usuarios (email,nombre,apellidos,password,fecha_nac,rol,validado) VALUES (?,?,?,md5(?),?,?,?)";
@@ -40,7 +49,16 @@ public class UsuarioDAO {
         }
         return insertado;
     }
-
+     /**
+ *Recupera un usuario de la base de datos.
+ *
+ * Este método utiliza una sentencia SQL preparada para recoger los datos de un
+ * usuario, buscándolo por su id
+ *
+ * @author Rubén
+ * @param id de tipo int que se corresponde con el id del usuario a buscar
+ * @return un objeto de tipo {@link Usuario} o null si no se encuentra
+ */
     public Usuario obtenerUsuarioPorId(int id) {
         Usuario usu = null;
         String sql = "SELECT * FROM usuarios WHERE cod_usu=?";
@@ -70,7 +88,16 @@ public class UsuarioDAO {
         }
         return usu;
     }
-
+     /**
+ *Recupera un usuario de la base de datos.
+ *
+ * Este método utiliza una sentencia SQL preparada para recoger los datos de un
+ * usuario, buscándolo por la id de la ruta que ha creado
+ *
+ * @author Rubén
+ * @param id_ruta de tipo int que se corresponde con la ruta creada por el usuario a buscar
+ * @return un objeto de tipo {@link Usuario} o null si no se encuentra
+ */
     public Usuario obtenerUsuarioCreador(int id_ruta) {
         Usuario usu = null;
         String sql = "SELECT * FROM usuarios INNER JOIN rutas ON cod_usu=usuarios_cod_usu WHERE id_ruta=? AND cod_usu=usuarios_cod_usu";
@@ -100,6 +127,16 @@ public class UsuarioDAO {
         }
         return usu;
     }
+     /**
+ *Borra un usuario de la base de datos.
+ *
+ * Este método utiliza una sentencia SQL preparada para borrar una fila
+ * en la tabla "usuarios", utilizando para ello su id
+ *
+ * @author Rubén
+ * @param id de tipo int que se corresponde con el id del usuario a borrar
+ * @return {@code true} si el usuario fue borrado correctamente de la base de datos; {@code false} en caso contrario
+ */
     public boolean borrarUsuario(int id){
         boolean borrado=false;
         String sql="DELETE FROM USUARIOS WHERE cod_usu=?";
@@ -114,6 +151,16 @@ public class UsuarioDAO {
         }
         return borrado;
     }
+         /**
+ *Modifica un usuario en la base de datos.
+ *
+ * Este método utiliza una sentencia SQL preparada para modificar una fila
+ * en la tabla "usuarios", cambiando los datos de un usuario
+ *
+ * @author Rubén
+ * @param usu objeto de tipo {@link Usuario} que representa el usuario ya modificado que se debe actualizar
+ * @return {@code true} si el usuario fue actualizado correctamente de la base de datos; {@code false} en caso contrario
+ */
     public boolean modificarUsuario(Usuario usu){
         boolean modificado=false;
         String sql="UPDATE USUARIOS SET email=?, nombre=?, apellidos=?, password=md5(?), fecha_nac=?, rol=?, validado=?";
@@ -134,11 +181,22 @@ public class UsuarioDAO {
         }
         return modificado;
     }
-    public Usuario buscarUsuPorNomPassword(String nombre, String password){
+         /**
+ *Recupera un usuario de la base de datos buscando su email y su clave.
+ *
+ * Este método utiliza una sentencia SQL preparada para recoger los datos de un
+ * usuario, buscándolo por su email y contraseña
+ *
+ * @author Rubén
+ * @param email de tipo {@link String} que se corresponde con el email del usuario utilizado para iniciar sesion
+ * @param password de tipo {@link String} que se corresponde con la contraseña que utiliza el usuario para iniciar sesion
+ * @return un objeto de tipo {@link Usuario} o null si no se encuentra
+ */
+    public Usuario buscarUsuPorEmailPassword(String email, String password){
             Usuario usu=null;
-            String sql = "SELECT * FROM usuarios WHERE nombre=? AND password=md5(?)";
+            String sql = "SELECT * FROM usuarios WHERE email=? AND password=md5(?)";
         try (PreparedStatement ps = conn.prepareStatement(sql);) {
-            ps.setString(1, nombre);
+            ps.setString(1, email);
             ps.setString(2, password);
             try (ResultSet rs = ps.executeQuery();) {
                 if (rs.next()) {
@@ -164,6 +222,14 @@ public class UsuarioDAO {
         }
         return usu;
     }
+            /**
+ * Genera una lista con todos los usuarios existentes en la base de datos cuyo estado está en "no validado".
+ *
+ * Este método utiliza una sentencia SQL devolver los datos de los usuarios existentes en la base de datos y no validados
+ *
+ * @author Rubén
+ * @return una {@link java.util.ArrayList} con los objetos de tipo {@link Usuario} o vacía si no hay ninguno en la base de datos
+ */ 
    public ArrayList<Usuario>listarUsuariosNoValidados(){
       ArrayList<Usuario>noValidados=new ArrayList<>();
       String sql="SELECT * FROM usuarios WHERE validado=false;";
@@ -194,7 +260,16 @@ public class UsuarioDAO {
       }
       return noValidados;
    }
-   
+          /**
+ *Modifica un usuario en la base de datos.
+ *
+ * Este método utiliza una sentencia SQL preparada para modificar una fila
+ * en la tabla "usuarios", cambiando su estado a "validado"
+ *
+ * @author Rubén
+ * @param usu objeto de tipo {@link Usuario} que representa el usuario al que se le quiere actualizar el estado de validación
+ * @return {@code true} si el usuario fue actualizado correctamente de la base de datos; {@code false} en caso contrario
+ */
    public boolean validarUsuario(Usuario usu){
        boolean validado=false;
        String sql="UPDATE USUARIOS SET validado=true WHERE cod_usu=?;";
