@@ -4,10 +4,12 @@
  */
 package prog.retoequipo2;
 
-/**
+         /**
+ *Representa los dos tipos diferentes de Rutas que pueden registrarse
  *
- * @author DAM126
- */
+ *
+ * @author Rubén
+ */  
 public enum CLASIFICACION {
 circular,lineal    
 }

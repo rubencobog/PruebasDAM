@@ -5,8 +5,9 @@
 package prog.retoequipo2;
 
 /**
- *
- * @author DAM126
+ *Lista de roles que puede desempeñar un Usuario
+ * 
+ * @author Rubén
  */
 public enum ROL {
     ADMINISTRADOR,DISENADOR,PROFESOR,ALUMNO,INVITADO

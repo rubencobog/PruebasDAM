@@ -20,14 +20,14 @@ public class RETOEQUIPO2 {
         UsuarioDAO usuariosss = new UsuarioDAO();
         MetodosDAO metodosss = new MetodosDAO();
         Alumno usu1 = new Alumno(1, "rubencio@gmail.com", "ruben", "cobo", "pass", LocalDate.parse("1994-02-24"));
-        //if(usuariosss.insertaUsuario(usu1)){
+        /*//if(usuariosss.insertaUsuario(usu1)){
          //System.out.println("Usuario insertado");
         //}
         Administrador usu2 = new Administrador(4, "hola@hola", "marco", "materazzi", "1234", LocalDate.parse("1994-02-24"));
         //if(usuariosss.insertaUsuario(usu2)){
          //System.out.println("Usuario insertado");
         //}
-        Ruta ruta = new Ruta("El toral", LocalDate.parse("1998-12-12"), 22.22, 44.44, 44.44, 22.22, 345, 456, 55.65, 65.87, CLASIFICACION.circular, 300, 4, 3, true, true, "suputamadre.com",
+        */Ruta ruta = new Ruta("El toral", LocalDate.parse("1998-12-12"), 22.22, 44.44, 44.44, 22.22, 345, 456, 55.65, 65.87, CLASIFICACION.circular, 300, 4, 3, true, true, "suputamadre.com",
                 "lleva una rebequita por si refresca", "Sri lanka", usu1);
         //if (rutasss.insertarRuta(ruta)) {
           //  System.out.println("Ruta insertada");
@@ -37,12 +37,23 @@ public class RETOEQUIPO2 {
         //if (rutasss.insertarRuta(ruta1)) {
           //  System.out.println("Ruta insertada");
         //}
-        Ruta ruta2 = rutasss.obtenerRutaPorId(1);
+        Ruta ruta2 = rutasss.obtenerRutaPorId(3);
         Usuario usu3 = usuariosss.obtenerUsuarioCreador(1);
-        System.out.println(usu2);
+        //System.out.println(usu2);
         Punto_peligro pi = new Punto_peligro(1, "puntoprueba", LocalDateTime.now(), 22, 33, "hola", 37264, 5, "mu peligrosu");
         //if (metodosss.insertarPuntoPeligro(pi, ruta2)) {
           //  System.out.println("punto insertado");
         //}
+
+        Actividad actividad=new Actividad("hiking","14km de ruta por el monte");
+        //if(metodosss.insertarActividad(actividad, ruta2)){
+          //  System.out.println("Actividad insertada");
+        //}
+        Periodo periodo=new Periodo("Verano","Epoca de calor");
+        LinkedList<Periodo>periodos=metodosss.listaPeriodos();
+        for(Periodo p:periodos){
+            System.out.println(p.getNom_periodo());
+        }
+
     }
 }

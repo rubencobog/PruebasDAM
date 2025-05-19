@@ -4,10 +4,12 @@
  */
 package prog.retoequipo2;
 
-/**
+         /**
+ *Lista que representa los tipos de punto de interés que puede contener una ruta
  *
- * @author DAM126
- */
+ *
+ * @author Rubén
+ */ 
 public enum TIPO {
 historico_arqueologico, naturaleza, mirador, area_de_descanso, punto_de_agua, 
 refugio_alojamiento, cultural, geologico, fauna_especifica, botanico
