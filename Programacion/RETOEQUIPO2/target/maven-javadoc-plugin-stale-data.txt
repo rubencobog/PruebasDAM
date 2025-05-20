@@ -1,0 +1,47 @@
+-J-Duser.language=
+-J-Duser.country=
+@options
+@packages
+-classpath
+'C:/Users/Rubéns/.m2/repository/mysql/mysql-connector-java/8.0.29/mysql-connector-java-8.0.29.jar;C:/Users/Rubéns/.m2/repository/com/google/protobuf/protobuf-java/3.19.4/protobuf-java-3.19.4.jar'
+-encoding
+'UTF-8'
+-protected
+-source
+'22'
+-sourcepath
+'C:/Users/Rubéns/Desktop/RETO/REPO/Programacion/RETOEQUIPO2/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2025. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/Rubéns/Desktop/RETO/REPO/Programacion/RETOEQUIPO2/target/reports/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'RETOEQUIPO2 1.0-SNAPSHOT API'
+-use
+-version
+-windowtitle
+'RETOEQUIPO2 1.0-SNAPSHOT API'
+prog.retoequipo2
+C:\Users\Rubéns\.m2\repository\mysql\mysql-connector-java\8.0.29\mysql-connector-java-8.0.29.jar = 1743584695090
+C:\Users\Rubéns\.m2\repository\com\google\protobuf\protobuf-java\3.19.4\protobuf-java-3.19.4.jar = 1743584695220
+C:\Users\Rubéns\Desktop\RETO\REPO\Programacion\RETOEQUIPO2\src\main\java = 1747471901365
+C:\Users\Rubéns\Desktop\RETO\REPO\Programacion\RETOEQUIPO2\target\reports\apidocs\allclasses-index.html = 1747651335541
+C:\Users\Rubéns\Desktop\RETO\REPO\Programacion\RETOEQUIPO2\target\reports\apidocs\allpackages-index.html = 1747651335544
+C:\Users\Rubéns\Desktop\RETO\REPO\Programacion\RETOEQUIPO2\target\reports\apidocs\element-list = 1747651335291
+C:\Users\Rubéns\Desktop\RETO\REPO\Programacion\RETOEQUIPO2\target\reports\apidocs\help-doc.html = 1747651335587
+C:\Users\Rubéns\Desktop\RETO\REPO\Programacion\RETOEQUIPO2\target\reports\apidocs\index-all.html = 1747651335575
+C:\Users\Rubéns\Desktop\RETO\REPO\Programacion\RETOEQUIPO2\target\reports\apidocs\index.html = 1747651335581
+C:\Users\Rubéns\Desktop\RETO\REPO\Programacion\RETOEQUIPO2\target\reports\apidocs\javadoc.bat = 1747651119829
+C:\Users\Rubéns\Desktop\RETO\REPO\Programacion\RETOEQUIPO2\target\reports\apidocs\member-search-index.js = 1747651335549
+C:\Users\Rubéns\Desktop\RETO\REPO\Programacion\RETOEQUIPO2\target\reports\apidocs\module-search-index.js = 1747651335546
+C:\Users\Rubéns\Desktop\RETO\REPO\Programacion\RETOEQUIPO2\target\reports\apidocs\overview-tree.html = 1747651335509
+C:\Users\Rubéns\Desktop\RETO\REPO\Programacion\RETOEQUIPO2\target\reports\apidocs\package-search-index.js = 1747651335547
+C:\Users\Rubéns\Desktop\RETO\REPO\Programacion\RETOEQUIPO2\target\reports\apidocs\search.html = 1747651335578
+C:\Users\Rubéns\Desktop\RETO\REPO\Programacion\RETOEQUIPO2\target\reports\apidocs\serialized-form.html = 1747651335360
+C:\Users\Rubéns\Desktop\RETO\REPO\Programacion\RETOEQUIPO2\target\reports\apidocs\tag-search-index.js = 1747651335550
+C:\Users\Rubéns\Desktop\RETO\REPO\Programacion\RETOEQUIPO2\target\reports\apidocs\type-search-index.js = 1747651335548
