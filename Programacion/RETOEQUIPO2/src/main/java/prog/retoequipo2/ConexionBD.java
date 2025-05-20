@@ -17,9 +17,9 @@ public class ConexionBD {
 
     private Connection conn = null;
     private static final String BD = "rutas_airelibre";
-    private static final String USER = "root";
-    private static final String PASSWORD = "mysql";
-    private static final String URL = "jdbc:mysql://localhost:3307/" + BD;
+    private static final String USER = "equipo2";
+    private static final String PASSWORD = "Equipo2@";
+    private static final String URL = "jdbc:mysql://10.0.16.199:3306/" + BD;
 
     private ConexionBD() {
         try {
