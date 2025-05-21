@@ -6,8 +6,8 @@ Pruebas de clase y ejercicios
 |veamos|*si funciona*|
 |esta|vaina loca|
 
--Me gusta entrenar
--me gusta mi mejor amiga...
- -me gustaría una vida mejor
+- Me gusta entrenar
+- me gusta mi mejor amiga...
+ - me gustaría una vida mejor
 
  [Mi mejor amigo](https://chatgpt.com)
