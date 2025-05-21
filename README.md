@@ -1,5 +1,5 @@
 # PruebasDAM
-Pruebas de clase y ejercicios
+## Pruebas de clase y ejercicios
 
 | Prueba | **a ver**|
 |---------|-------|
