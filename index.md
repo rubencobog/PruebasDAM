@@ -3,6 +3,7 @@ title: documentacion del proyecto
 ---
 
 <link rel="stylesheet" href="estilos.css">
+<div class="container">
 
 # PruebasDAM
 ## Pruebas de clase y ejercicios
@@ -17,3 +18,5 @@ title: documentacion del proyecto
  - me gustaría una vida mejor
 
  [Mi mejor amigo](https://chatgpt.com)
+
+ </div>
