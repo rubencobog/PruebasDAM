@@ -2,6 +2,7 @@
 Pruebas de clase y ejercicios
 
 | Prueba | **a ver**|
+|---------|-------|
 |veamos|*si funciona*|
 |esta|vaina loca|
 
