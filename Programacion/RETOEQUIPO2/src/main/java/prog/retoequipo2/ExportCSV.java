@@ -10,15 +10,21 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 /**
- *
- * @author DAM110
+ *Clase que se encarga de exportar los datos de una ruta a un fichero
+ * 
+ * @author Guille
  */
 public class ExportCSV {
-
+/**
+ *El método se encarga de exportar los datos de una ruta a un archivo formato CSV
+ * 
+ * @author Guille
+ * @param ruta objeto de tipo {@link Ruta} que representa la ruta que se va a exportar
+ * @param archivoExport que se corresponde con la URL donde se aloja el archivo
+ */
     public static void exportarRuta(Ruta ruta, String archivoExport) {
         File archivo = new File(archivoExport);
-        MetodosDAO metodos = new MetodosDAO();
-        
+
         try {
             if (!archivo.exists()) {
                 archivo.createNewFile();
@@ -29,22 +35,26 @@ public class ExportCSV {
                 writer.write("InfoGeneral," + ruta.getNombre() + "," + ruta.getCreador() + "," + ruta.getUrl_gpx() + "," + ruta.getFecha() + "\n");
 
                 writer.write("\nTipoRegistro,Latitud,Longitud,Timestamp\n");
-                for (Punto_interes interes : metodos.listarPuntosInteresRuta(ruta.getId_ruta())) {
+                for (Puntos_ruta punto : ruta.getPuntos_ruta()) {
+                    if(punto instanceof Punto_peligro peligro){
+                    writer.write("PuntoPeligro," + peligro.getLatitud() + "," + peligro.getLongitud() + "," + peligro.getTimestamp() 
+                            + peligro.getKm() + "," + peligro.getNivel_gravedad() + "," + peligro.getDescripcion_gravedad() +"\n");
+                    }
+                    else if(punto instanceof Punto_interes interes){
                     writer.write("PuntoInteres," + interes.getLatitud() + "," + interes.getLongitud() + "," + interes.getTimestamp()
-                            + "," + interes.getTipo() + "," + interes.getCaract_especiales() + "\n");
-                }
-                    
-                for (Punto_peligro peligro : metodos.listarPuntosPeligroRuta(ruta.getId_ruta())) {
-                    writer.write("PuntoPeligro," + peligro.getLatitud() + "," + peligro.getLongitud() + "," + peligro.getTimestamp()
-                            + "," + peligro.getKm() + "," + peligro.getNivel_gravedad() + "," + peligro.getDescripcion_gravedad() + "\n");
-                }
+                            + interes.getTipo()+","+interes.getCaract_especiales()+"\n");
+                    }
                 
                 }
 
             
             } catch (IOException e) {
-                System.out.println("Error al exportar el archivo");
-            }
-         }
-    }
+                System.out.println(e.getMessage() + "\nError al escribir en el archivo");
 
+            }
+        } catch (IOException e) {
+            System.out.println(e.getMessage() + "\nError al crear el archivo");
+
+        }
+    }
+}
